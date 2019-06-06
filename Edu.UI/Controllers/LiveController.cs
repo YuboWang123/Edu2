@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Edu.UI.Models.LiveViewModels;
 using Edu.UI.Service.Live;
 
 namespace Edu.UI.Controllers
@@ -18,7 +19,13 @@ namespace Edu.UI.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var liveshows = _hostShowContext.GetShows(out int i);
+            string pgr = Common.Utility.HtmlPager(12, 1, i, 5);
+            return View(new PagedLiveShow()
+            {
+                LiveHostShows=liveshows,
+                pager = pgr
+            });
         }
 
         /// <summary>

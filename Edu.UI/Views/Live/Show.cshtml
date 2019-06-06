@@ -1,0 +1,64 @@
+﻿@using Edu.Entity.Live
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Scripts/lib/video.js/video-js.min.css" rel="stylesheet" />
+
+<h2>Index</h2>
+<main class="container">
+    <h3>video</h3>
+
+    <div class="row">
+        <div class="col-md-8">
+            <section id="videoPlayer">
+                <video id="my-video" class="video-js" controls preload="auto" width="740" height="400"
+                       poster="m.png" data-setup="{}"></video>
+            </section>
+        </div>
+        <div class="col-md-4">
+            right
+        </div>
+    </div>
+</main>
+
+@section scripts
+{
+    <script src="~/Scripts/lib/video.js/video.min.js"></script>
+    <script src="~/Scripts/lib/video.js/videojs-contrib-hls.min.js"></script>
+    <script src="~/Scripts/lib/video.js/videojs-http-streaming.min.js"></script>
+    <script type="text/javascript">
+
+        /*option只是一个参数,function onPlayerReady就是播放器初始化完成时会执行的回调函数*/
+
+        var videoObj = videojs('my-video');
+        var option = {};
+        /*option只是一个参数,function onPlayerReady就是播放器初始化完成时会执行的回调函数*/
+        var myPlayer = videojs('my-video',
+            option,
+            function onPlayerReady() {
+                var myPlayer = this,
+                    path = function() {
+                        return 'http://192.168.1.39:10008/record/' +
+                            '1052851' +
+                            '.sdp/' +
+                            new Date().getFullYear() +
+                            ('0'+(parseInt(new Date().getMonth()) +1)).slice(-2) +
+                            ('0'+new Date().getDate()).slice(-2)+'/out.m3u8';
+                    };
+                console.log(path());
+                myPlayer.src({
+                    //src: 'http://localhost:10008/record/1052851.sdp/20190605/out.m3u8',
+                    src: path(),
+                    type: "application/x-mpegURL"
+                });
+
+                this.play();
+            });
+
+    </script>
+}
+

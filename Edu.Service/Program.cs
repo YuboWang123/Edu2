@@ -1,5 +1,7 @@
-﻿using Fleck;
+﻿
+using Fleck;
 using Fleck.Events;
+using Fleck.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,7 @@ namespace Edu.Service
             var allSockets = new List<IWebSocketConnection>();
             var server = new WebSocketServer("ws://0.0.0.0:8881");
 
-            FileProcessor fp=new FileProcessor();
+            FileProcessor fp=new FileProcessor("");
             Task.Run(()=>fp.FileMonitor());
 
             server.Start(socket =>
@@ -36,10 +38,10 @@ namespace Edu.Service
                 ///user request 
                 socket.OnMessage = message =>
                 {
-                    socket.ShowingId = message;
+                    //socket.ShowingId = message;
 
-                    //start feeding.
-                    fp.NewFileCome += socket.OnFileHasCome;
+                    ////start feeding.
+                    //fp.NewFileCome += socket.OnFileHasCome;
 
                     Console.WriteLine("get message from socket " + socket.ConnectionInfo.ClientIpAddress+":"+socket.ConnectionInfo.ClientPort+" and msg is:"+ message);
 

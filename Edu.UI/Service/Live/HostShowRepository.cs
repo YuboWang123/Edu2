@@ -26,16 +26,20 @@ namespace Edu.UI.Service.Live
 
         public int Add(LiveHostShow mdl)
         {
-            mdl.Id = Guid.NewGuid().ToString("n");
-            mdl.MakeDay = DateTime.Now;
             _dbcontext.Entry(mdl).State = EntityState.Added;
             return _dbcontext.SaveChanges();
-            //throw new NotImplementedException();
+         
         }
 
         public int Del(string id)
         {
             throw new NotImplementedException();
+        }
+
+        public string GenNewId()
+        {
+            int i = _dbcontext.LiveHostShows.Count();
+            return i.ToString().PadLeft(4, '0');
         }
 
         public Task<int> GetUser(PushUser user)
@@ -50,6 +54,21 @@ namespace Edu.UI.Service.Live
            // throw new NotImplementedException();
         }
 
+
+        /// <summary>
+        /// get all shows  for the index list.
+        /// </summary>
+        /// <param name="ttl"></param>
+        /// <param name="pg"></param>
+        /// <returns></returns>
+        public List<LiveHostShow> GetShows(out int ttl,int pg=1)
+        {
+            var mdl = _dbcontext.LiveHostShows.OrderByDescending(a => a.StartDate).ToList();
+            ttl = mdl.Count;
+            return mdl;
+        }
+
+
         public bool IsTeacher(string uid)
         {
             throw new NotImplementedException();
@@ -57,7 +76,13 @@ namespace Edu.UI.Service.Live
 
         public LiveHostShow Single(string k)
         {
-            return _dbcontext.LiveHostShows.SingleOrDefault(a =>a.UserId==k);
+            return _dbcontext.LiveHostShows.SingleOrDefault(a =>a.UserId==k)??new LiveHostShow();
+        }
+
+
+        public bool Exist(string uid)
+        {
+            return _dbcontext.LiveHostShows.Any(a => a.UserId == uid);
         }
 
         public int Update(LiveHostShow mdl)

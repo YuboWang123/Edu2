@@ -316,6 +316,7 @@
     <Compile Include="Areas\School\Service\UserSv.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\FileController.cs" />
+    <Compile Include="Controllers\api\LiveShowController.cs" />
     <Compile Include="Controllers\api\NotifyController.cs" />
     <Compile Include="Controllers\api\AlipayController.cs" />
     <Compile Include="Controllers\api\UserLessonController.cs" />
@@ -334,12 +335,25 @@
     <Compile Include="Migrations\201811300238092_InitialCreate.Designer.cs">
       <DependentUpon>201811300238092_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906060745545_payShow.cs" />
+    <Compile Include="Migrations\201906060745545_payShow.Designer.cs">
+      <DependentUpon>201906060745545_payShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906060833495_rmvPay.cs" />
+    <Compile Include="Migrations\201906060833495_rmvPay.Designer.cs">
+      <DependentUpon>201906060833495_rmvPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906060842451_coverpic.cs" />
+    <Compile Include="Migrations\201906060842451_coverpic.Designer.cs">
+      <DependentUpon>201906060842451_coverpic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\jsTree3Node.cs" />
+    <Compile Include="Models\LiveViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OperResultModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
@@ -1336,6 +1350,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper.min.js.map" />
     <Content Include="Scripts\README.md" />
+    <Content Include="Views\Live\Show.cshtml" />
+    <Content Include="Views\Manage\_indexLiveShow.cshtml" />
     <Content Include="Views\Live\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1380,6 +1396,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811300238092_InitialCreate.resx">
       <DependentUpon>201811300238092_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906060745545_payShow.resx">
+      <DependentUpon>201906060745545_payShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906060833495_rmvPay.resx">
+      <DependentUpon>201906060833495_rmvPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906060842451_coverpic.resx">
+      <DependentUpon>201906060842451_coverpic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

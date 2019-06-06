@@ -31,26 +31,23 @@
                 </li>
                 <li>
                     <a href="javascript:;">我的订单</a>
-                </li>
-
+                </li>   
             </ul>
         </div>
 
         <div class="col-md-9">
-
             <div class="product-wrap">
                 <div class="product" style="display: block;">
                     <h3 class="text-indent" style="margin-left: 2em;">用户信息</h3>
                     @Html.Partial("_indexUser", Model.ApplicationUser)
                 </div>
                 <div class="product" style="display: none;">
-
                     @Html.Partial("_indexPay", new CardViewModel())
                 </div>
                 <div class="product" style="display: none;">
-
                     @Html.Partial("_indexOrder", Model.MyCards ?? new List<FinCardDto>())
                 </div>
+             
             </div>
         </div>
     </div>

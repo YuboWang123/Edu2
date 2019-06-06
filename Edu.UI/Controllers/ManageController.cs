@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Edu.Entity.Live;
 
 namespace Edu.UI.Controllers
 {
@@ -99,7 +100,8 @@ namespace Edu.UI.Controllers
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(MyUserId),
                 ApplicationUser = UserManager.Users.SingleOrDefault(a => a.Id == MyUserId),
                 MyCards = finCardBll.QueryFinCardDtos("userid='"+MyUserId+"'",null,1,out int i,10) ?? new List<FinCardDto>(),
-                IsVip = User.IsInRole("vip")
+                IsVip = User.IsInRole("vip"),
+                LiveHostShow = new Service.Live.HostShowRepository().Single(MyUserId)
             };
 
 

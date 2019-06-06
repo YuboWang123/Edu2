@@ -25,9 +25,9 @@ namespace Edu.DAL.UserLesson
             _sb = new StringBuilder();
             if (string.IsNullOrEmpty(orderby))
             {
-                orderby = " LastViewDay";
+                orderby = " EventDateTime";
             }
-            _sb.AppendFormat(@"SELECT ROW_NUMBER() over (order by {0} {1}) od,UserId, TrainBaseLessonId, VcrId, TimeSpanViewed, LastViewDay, Memo FROM UserLessons", orderby,isAsc?"asc":"desc");
+            _sb.AppendFormat(@"SELECT ROW_NUMBER() over (order by {0} {1}) od,UserId, TrainBaseLessonId,EventDateTime, VcrId, TimeSpanViewed,  Memo FROM UserLessons", orderby,isAsc?"asc":"desc");
 
             if (!string.IsNullOrEmpty(whr))
             {

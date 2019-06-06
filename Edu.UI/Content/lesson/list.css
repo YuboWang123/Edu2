@@ -121,12 +121,6 @@ div.lessons>.row .img-thumbnail{
     transform: scale(1.2)
 }
 
-.course-video-item-info {
-    /*position: absolute;
-    bottom: 0;
-    width: 100%*/
-}
-
 .course-video-name {  
     font-size: 14px;   
     color: #fff;  

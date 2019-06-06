@@ -70,7 +70,8 @@ namespace Edu.Entity
             sys,
             teacher,
             schoolmaster,
-            student
+            student,
+            host
         }
 
         public enum FileType

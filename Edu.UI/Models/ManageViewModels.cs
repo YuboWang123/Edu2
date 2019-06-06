@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Edu.Entity.Live;
 using Edu.Entity.SchoolFinance;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -17,7 +18,7 @@ namespace Edu.UI.Models
         public IList<FinCardDto> MyCards { get; set; } //cards already bought.
         public bool  IsVip { get; set; }
         public ApplicationUser ApplicationUser { get; set; }//user profile.
-
+        public LiveHostShow LiveHostShow { get; set; } //all user shows.
     }
 
     public class CardViewModel

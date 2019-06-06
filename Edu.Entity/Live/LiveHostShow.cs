@@ -5,6 +5,12 @@ using System.Text;
 
 namespace Edu.Entity.Live
 {
+
+    /// <summary>
+    /// live show lesson
+    /// it can pay for the lesson, when host permitted the user ,user can access in the lesson
+    /// 
+    /// </summary>
     public class LiveHostShow 
     {
         [Key]public string Id { get;set; }
@@ -16,6 +22,10 @@ namespace Edu.Entity.Live
         [Display(Name = "简述")]public string Memo { get;set; } //description
         public bool IsEnabled { get;set; }
         [Display(Name="普通教育学科")]public bool? IsBasic { get;set; }
+        [Display(Name = "Wechat code")]public byte[] QrPay { get; set; } //wechat  pay.
+        [Display(Name = "Alipay code ")]public byte[] QrAlipay { get; set; } //alipay  pay.
+
+        [Display(Name="封面贴图")] public byte[] CoverPic { get; set; }
         
     }
 }
