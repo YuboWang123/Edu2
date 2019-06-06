@@ -1,0 +1,60 @@
+﻿
+ 
+section{
+   border-bottom:1px dashed #d3d3d3;
+   padding-top:20px;
+   padding-bottom:20px;
+}
+.depction span{
+    display:inline-block;
+    width:50px;
+    height:20px;
+    padding-left:5px;
+}
+section:last-child {
+    border: none;
+}
+    section > div.hd, section > div.bd {
+        float: left;
+        line-height: 1.5em;
+        font-size:16px;
+        margin-left: 1.5em;
+    }
+
+    section>div.bd li{display:inline-block; width:100px;}
+    section >div.hd{
+        font-weight:bold;
+        margin-top:10px;
+    }
+
+
+    section>div.bd a{ padding:5px 8px; text-decoration:none; color:#949494; letter-spacing:.2em;}
+        section > div.bd a:hover,
+        section > div.bd a.active,span.active {
+            background: #027fa9;
+            color: #fff;
+            text-decoration: none;
+        }
+
+    ul{
+        margin-top:10px;       
+    }
+
+a.catch,span.catch {
+    border: 1px solid #027fa9;
+}
+
+div.ms {
+    height: 50px;
+    width: 100%;
+    background: #f90;
+    text-align: center;
+    line-height: 150px;    
+    font-size: larger;
+    position: absolute;   
+    color: #fff;
+    display: none;
+    z-index: 10;
+}
+
+/* tips for success**/ 

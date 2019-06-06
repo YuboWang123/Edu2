@@ -1,0 +1,43 @@
+﻿@model Edu.UI.Models.TrainViewModels.VcrPlayViewModel
+
+@section style{
+    <link href="~/Content/tabs.css" rel="stylesheet" />
+    <link href="~/Content/lesson/play.css" rel="stylesheet" />
+}
+
+
+<section class="bg-black">
+    <div class="container video-height">
+        <div class="row">
+            <!--video-->
+            <div class="col-xs-12 col-md-9 videoDiv">
+                <video controls="" id="media" autoplay src="@(Model.SelectedVcr?.VideoPath)">
+
+                </video>
+            </div>
+            <!--play list-->
+            <div class="col-xs-12 col-md-3  video-height playList">
+                @Html.Partial("playlist")
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="rest">
+    <div class="container">
+        @Html.Partial("playcontent", Model.VcrPlayContent)
+
+    </div>
+</section>
+
+
+@section scripts{
+    <script>
+        var sele = '@(Model.SelectedVcr?.Id)', lsn = '@(Model.LessonInfo.Id)';
+    </script>
+
+    <script src="~/Scripts/basiclesson/vcrTest.js"></script>
+    <script src="~/Scripts/basiclesson/play.js"></script>
+
+}

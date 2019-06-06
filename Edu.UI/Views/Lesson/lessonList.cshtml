@@ -1,0 +1,36 @@
+﻿
+
+@model  Edu.UI.Models.TrainViewModels.BindingLessonViewModel
+
+@if (Model.TrainBaseLessons!=null && Model.TrainBaseLessons.Count()>0)
+{
+
+
+   foreach (var item in Model.TrainBaseLessons)
+    {
+        string imgP = string.IsNullOrWhiteSpace(item.ImagePath) ? Edu.Entity.AppConfigs.defaultImagePath : item.ImagePath;
+
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <a href="/lesson/index/@item.Id">
+                <div class="course-video-list-item ">
+                    <div class="course-video-item-img"> <img alt="" class="img-thumbnail" src="@imgP" />         
+                    </div>
+                </div>
+            </a>
+            <div class="course-video-item-info">
+                <div class="course-video-name"> @item.TitleOrName</div>
+                <div class="video-teacher-name"><i class="fa fa-book"></i> @item.VideoCount<span class="price">@item.Price</span></div>
+            </div>
+        </div>
+    }
+
+
+<div class="black2" style="clear:both">
+    @Html.Raw(Model.Pager)
+</div> 
+}
+else
+{
+<div class="text-center"><h5 class="text-muted">无相关课程</h5></div>
+}
+

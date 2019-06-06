@@ -1,0 +1,51 @@
+﻿@using Edu.Entity
+@model IEnumerable<TrainLesson>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                图片
+            </th>
+            <th>
+                课程名称
+            </th>
+
+            <th>
+                <a href="#" rel="1" title="Price">价格</a>
+            </th>
+            <th>
+                创建时间
+            </th>
+            <th>
+                创建人
+            </th>
+            <th>
+                <a href="#" rel="1" title="DiscountPrice">优惠价</a>
+            </th>
+            <th>
+                启用
+            </th>
+            <th>
+                <a href="#" rel="1" title="ClickTimes">点击次数</a>
+            </th>
+            <th>视频数量</th>
+            <th style="text-indent:60px;">管理</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td colspan="12" class="text-center"><a href="#">没有记录</a></td>
+        </tr>
+        @{ 
+            if (Model != null && Model.Count() > 0)
+            {
+
+            }
+        }
+
+    </tbody>
+
+</table>

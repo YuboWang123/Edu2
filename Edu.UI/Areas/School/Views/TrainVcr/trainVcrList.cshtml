@@ -1,0 +1,50 @@
+﻿@using Edu.Entity.TrainLesson
+
+@model Edu.UI.Areas.School.Models.VcrViewModels.VcrListPag
+
+@{
+    int c = Model.Vcrs == null ? 0 : Model.Vcrs.Count();
+}
+
+
+<table class="layui-table">
+    <thead>
+    <tr> 
+        <th style="width:11rem;">名称</th>
+        <th style="width: 1em;">序号</th>
+        <th style="width: 3rem;overflow: hidden">管理</th>
+    </tr>
+    </thead>
+    <tbody class="">
+    @if (c > 0)
+    {
+        foreach (var item in Model.Vcrs)
+        {
+            <tr property="@item.Id">
+                
+                <td>@item.TitleOrName</td>
+                <td>@item.OrderCode</td>
+                <td>
+                    <div class="layui-btn-group">
+                        <button class="layui-btn layui-btn-xs" data-id="@item.Id" onclick="vcrFns.ed($(this));">
+                            <i class="layui-icon">&#xe642;</i>
+                        </button>
+                        <button class="layui-btn layui-btn-xs" data-id="@item.Id" onclick="vcrFns.del('@item.Id')";>
+                            <i class="layui-icon layui-icon-delete"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr class="text-center"><td colspan="3">没有记录</td></tr>
+    }
+    </tbody>
+
+</table>
+
+<div>
+    @Html.Raw(Model.Pager)
+</div>

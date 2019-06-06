@@ -1,0 +1,50 @@
+﻿ 
+@model IEnumerable<Edu.UI.Areas.School.Models.Module>
+
+<div class="sidebar-fold"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+
+<div class="subNavBox">
+    <div class="sBox">
+       
+        @if (Model != null && Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                <div class="subNav sublist-down">
+                    <span class="title-icon glyphicon glyphicon-chevron-down"></span>
+                    <span class="sublist-titl">
+                        @item.Name
+                    </span>
+                </div>
+                <ul class="navContent" style="display:block">
+                    @if (item.ConsoleSideMenus != null)
+                    {
+                        foreach (var content in item.ConsoleSideMenus)
+                         {
+                             <li>
+                                 <div class="showtitle" style="width:100px;">
+                                     <img src="~/Areas/Console/Public/image/leftimg.png"/>
+                                 </div>
+                                 <a href="#" property="@(Model.FirstOrDefault().consoleTopMenu.ControllerName + "/"+ content.ActionName)">
+                                     <span class="sublist-icon glyphicon glyphicon-wrench"></span>
+                                     <span class="sub-title">@content.Name</span>
+                                 </a>
+                             </li>
+
+                         }
+                    }
+
+                   
+
+                </ul>
+
+
+           
+
+            }
+        }
+    </div>
+   
+
+
+</div>

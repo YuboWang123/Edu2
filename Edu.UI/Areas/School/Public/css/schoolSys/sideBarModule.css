@@ -1,0 +1,28 @@
+﻿
+.topDiv{
+    height:100px;
+    border-bottom: 1px solid #ddd;
+    padding-top: 10px;
+    padding-left: 20px;
+
+}
+.tips{
+    color:#ff0000;
+    margin-left: 5px;
+}
+.module .left,
+.module .right {
+   padding-top: 20px;
+}
+
+.left{
+    border-right: 1px solid #ddd;
+}
+
+.right{
+    background-color: #eaeaea;
+}
+
+.jstreeModule{
+    margin-left: 20%;
+}

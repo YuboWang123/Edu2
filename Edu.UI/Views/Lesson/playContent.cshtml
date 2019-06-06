@@ -1,0 +1,23 @@
+﻿@model Edu.UI.Models.TrainViewModels.VcrPlayContent
+
+<div class="case">
+
+    <div class="title cf">
+
+        <ul class="title-list cf ">
+            <li class="on">配套资源</li>
+            <li class="">相关测试</li>
+            <p><b></b></p>
+        </ul>
+    </div>
+
+    <div class="product-wrap">
+        <div class="product" style="display:block;">
+            @Html.Partial("playfiles", Model.vcrFiles)
+        </div>
+        <div class="product" style="display: none;">
+            @Html.Partial("playtest", Model.vcrTests)
+        </div>
+    </div>
+</div>
+

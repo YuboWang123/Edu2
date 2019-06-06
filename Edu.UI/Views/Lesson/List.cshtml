@@ -1,0 +1,29 @@
+﻿@using Edu.Entity.TrainBase
+
+@model IEnumerable<Base_Period>
+
+@{
+    ViewBag.Title = "List";
+}
+@section style{
+    <link href="~/Content/lesson/list.css" rel="stylesheet" />
+    <link href="~/Content/pagination.css" rel="stylesheet" />
+}
+
+<div class="container options">
+  
+    @Html.Partial("_bindedlessondata")
+</div>
+
+
+<div class="container lessons">
+ 
+    <div class="row" id="lsnTbl">
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/binding.js"></script>
+    <script src="~/Scripts/basiclesson/list.js"></script>
+}

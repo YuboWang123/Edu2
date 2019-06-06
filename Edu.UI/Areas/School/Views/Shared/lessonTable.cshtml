@@ -1,0 +1,75 @@
+﻿@using Edu.Entity.TrainLesson
+@model  IEnumerable<TrainBaseLesson>
+
+<table class="layui-table" id="lessonTable">
+    <thead>
+        <tr>
+            <th><input type="checkbox" property="" />全选 </th>
+         
+            <th>
+                课程名称
+            </th>
+            <th>
+                价格
+            </th>
+            <th>
+                优惠价
+            </th>
+      
+            <th>
+                观看次数
+            </th>
+            <th>课时数</th>
+            <th>管理</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model == null || Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="11" class="text-center"><a href="#">没有记录</a></td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr property="@item.Id">
+                    <td>
+                        <input type="checkbox" property="@item.Id" lay-skin="primary"/>
+                    </td>
+                    <td>
+                        <a href="#">@item.TitleOrName</a>
+                    </td>
+                    <td>@item.Price.ToString("c")</td>
+                    <td>@(item.DiscountPrice ?? 0m)</td>
+                    <td>@item.ClickTimes</td>
+                    <td>@item.VideoCount</td>
+                    <td data-bindid="@item.Base_DataBindId">
+                 
+                        <div class="layui-btn-group"  property="@item.Id">
+                      
+                            <button class="layui-btn layui-btn-sm edit">
+                                <i class="layui-icon">&#xe642;</i>
+                            </button>
+                            <button class="layui-btn layui-btn-sm mgr"  data-lessonid="@item.Id" onclick="lessonHandler.mgrLesson(this)">
+                                <i class="layui-icon layui-icon-set"></i>
+                            </button>
+                         
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
+
+ 
+    <div class="default">
+        @Html.Raw(ViewData["pager"].ToString())
+    </div>
+ 
+ 

@@ -1,0 +1,108 @@
+﻿@using Edu.UI.Models.TrainViewModels
+@model LessonVcrViewModel
+@{
+    var cnt = Model.vcrs == null ? 0 : Model.vcrs.Count();
+}
+
+<div class="case">
+
+    <div class="title cf">
+        
+        <ul class="title-list cf ">
+            <li class="on">课程简介</li>
+            <li class="">课程目录</li>
+            <p><b></b></p>
+        </ul>
+    </div>
+
+    <div class="product-wrap">
+        
+        <div class="product" style="display: block;">
+            @if (string.IsNullOrWhiteSpace(Model.baseLesson.Memo))
+            {
+                <p class="text-center">没有介绍</p>
+            }
+            else
+            {
+                <p>@Model.baseLesson.Memo</p>
+            }
+        </div>
+
+       
+        <div class="product" style="display: none;">
+
+            @if (cnt > 0)
+            {
+                foreach (var item in Model.vcrs)
+                {
+                    <div class="row">
+                        <div class="col-md-8">
+                            <a class="" href="/lesson/play/@item.Id">
+                                @item.TitleOrName 
+                                <aside>
+                                    @item.Duration
+                                </aside>
+                            </a>
+                        </div>
+                        <div>
+                            @if (item.IsFree)
+                            {
+                                <a class="btn btn-xs btn-success" href="/lesson/play/@item.Id">免费</a>
+                            }
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-center padding-top">没有相关视频</p>
+            }
+        </div>
+
+        
+    </div>
+</div>
+
+@*<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#contents" aria-controls="home" role="tab" data-toggle="tab">内容介绍</a></li>
+    <li role="presentation"><a href="#vcrs" aria-controls="profile" role="tab" data-toggle="tab">课程列表</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="contents">
+     
+    </div>
+    <div role="tabpanel" class="tab-pane" id="vcrs">
+        @{
+            if (cnt > 0)
+            {
+                foreach (var item in Model.vcrs)
+                {
+                    <div class="row">
+                        <div class="col-md-8">
+                            <a class="" href="/basiclesson/play/@item.Id">
+                                @item.TitleOrName
+                            </a>
+                        </div>
+                        <div>
+                            <a href="/lesson/play/@item.Id">查看</a>
+                        </div>
+                    </div>
+                }
+
+            }
+            else
+            {
+                <p class="text-center padding-top" >没有相关视频</p>
+            }
+
+        }
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="lessonReview">...</div>
+
+</div>*@
+
+

@@ -1,0 +1,45 @@
+﻿@using Edu.UI.Models
+@model ApplicationUser
+<div class="row user">
+    
+        <div class="col-md-6">
+            <div class="col-sm-12">
+                <label>
+                    <i class="glyphicon glyphicon-user sparkleColor"></i>:
+                </label>
+                <span>@Model.UserName</span>
+            </div>
+            <div class="col-sm-12">
+                <label>
+                    <i class="glyphicon glyphicon-phone sparkleColor"></i>:
+                </label>
+                <span>@Model.UserName</span>
+            </div>  
+            <div class="col-sm-12">
+                <label>
+                    <i class="glyphicon glyphicon-education sparkleColor"></i>:
+                </label>
+                <span>
+                    <button class="btn btn-info" onclick="popPay()">购买vip</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="thumbnail" id="preview">
+           
+            </div>
+
+            <div id="basic-example" class="clearfix">
+                <div class="eg-data text-center">
+                    <a href="javascript:;" class="file btn btn-warning">
+                        打开图片
+                        <input type="file" name="file" id="sourceimg">
+                    </a>
+                    <a class="btn btn-primary text-main-reverse" id="upload-btn" onclick="upload()">保存头像</a>
+                </div>
+
+
+            </div>
+        </div>
+   
+</div>

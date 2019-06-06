@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Edu.Entity.TrainLesson.VcrFile>
+
+
+@if (Model == null || Model.Count() == 0)
+{
+    <p>没有资源信息</p>
+}
+else
+{
+    <table class="layui-table" lay-filter="fileList">
+        <thead>
+            <tr>
+                <th lay-data="{field:'username', width:100}">名称</th>
+                <th lay-data="{field:'username', width:100}">大小(KB)</th>
+                <th lay-data="{field:'username', width:100}">状态</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                string ext = Path.GetExtension(item.Path);
+                string img = string.Empty;
+                switch (ext)
+                {
+                    case ".txt":
+                        img = "<i class=\"glyphicon glyphicon-file\"></i>";
+                        break;
+                    case ".doc":
+                    case ".docx":
+                        img = "<i class=\"glyphicon glyphicon-list-alt\"></i>";
+                        break;
+                    case ".xls":
+                    case ".xlsx":
+                        img = "  <i class=\"glyphicon glyphicon-book\"></i>";
+                        break;
+                    case ".ppt":
+                    case ".pptx":
+                        img = " <i class=\"glyphicon glyphicon-film\"></i>";
+                        break;
+                    default:
+                        break;
+                }
+
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@Math.Round(item.FileSize/1024,2)</td>
+                    <td>@(item.FileOk != null && item.FileOk.Value?"OK":"错误")</td>
+                    <th>
+                        <button class="layui-btn layui-btn-sm" onclick="vcrFns._delRes(this)" data-id="@item.Id">删除</button>
+                    </th>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+
+}
+

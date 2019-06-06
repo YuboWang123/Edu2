@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+        .mask {
+            position: absolute;
+            top: 0px;
+            filter: alpha(opacity=60);
+            background-color: #777;
+            z-index: 1002;
+            left: 0px;
+            opacity: 0.5;
+            -moz-opacity: 0.5;
+            display: none;
+        }
+    </style>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+
+<div id="mask" class="mask">
+    <div class="mar-bot15"><h3 class="text-center " style="text-align: center;">dkdkdk</h3></div>
+</div>    
+<a href="javascript:;" onclick="showMask()" >点我显示遮罩层</a><br />  
+                                                      
+<script type="text/javascript">     
+    //兼容火狐、IE8   
+    //显示遮罩层    
+    function showMask(){     
+        $("#mask").css("height",$(document).height());     
+        $("#mask").css("width",$(document).width());     
+        $("#mask").show();     
+    }  
+    //隐藏遮罩层  
+    function hideMask(){     
+          
+        $("#mask").hide();     
+    }  
+     
+</script>  
+    
+
+<!--mouse over-->
+<style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .img-box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .img-box::before, .img-box::after {
+            z-index: 1000;
+            opacity: 0;
+        }
+
+        .img-box::before {
+            content: " ";
+            border: 50px solid #000;
+            position: absolute;
+        }
+
+        .img-box::after {
+            content: attr(data-tip);
+            top: -100%;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .img-box:hover::before {
+            opacity: 0.5;
+        }
+
+        .img-box:hover::after {
+            opacity: 1;
+        }
+
+    </style>
+ 
+<div class="img-box" data-tip="床前明月光，疑是地上霜。举头望明月，低头思故乡。">
+    <img src="1.png">
+</div>
+ <a id="t2" onMouseOver="javascript:show(this,'mydiv2');" onMouseOut="hide(this,'mydiv2')">鼠标放上去2</a> 
+</body>
+</html>

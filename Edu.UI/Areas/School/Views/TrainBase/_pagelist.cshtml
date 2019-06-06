@@ -1,0 +1,29 @@
+﻿
+
+@using PagedList.Mvc
+
+@model  Edu.UI.Areas.School.Models.BaseDataViewModel
+<style>
+    /*layer css*/
+    .layui-table-cell {
+        padding: unset;
+    }
+</style>
+
+
+<div id="baseList">
+    @Html.Partial("_baseDataTable")
+
+
+
+    <div class="page-main" style="text-align:center;">
+        @Html.PagedListPager(Model.Datas, page => Url.Action("_pagelist", "TrainBase", new { t=Model.Type, pg = page,asc=Model.IsAsc }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "baseList",
+            LoadingElementDuration = 5,
+            OnSuccess = ""
+        }))
+    </div>
+</div>

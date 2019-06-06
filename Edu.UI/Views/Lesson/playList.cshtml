@@ -1,0 +1,25 @@
+﻿@model Edu.UI.Models.TrainViewModels.VcrPlayViewModel
+
+<ol>
+
+    @{
+        int cnt = Model == null ? 0 : Model.vcrs.Count();
+        if (cnt > 0)
+        {
+            foreach (var item in Model.vcrs)
+            {
+
+                <li class="@(item.Id==Model.SelectedVcr.Id?"act":"") " property="@item.Id">@item.TitleOrName
+                @if (item.IsFree)
+                {
+                    <a class="btn btn-warning btn-xs float-right"><i class="glyphicon glyphicon-thumbs-up"></i> 免费</a>
+                }
+                    </li>
+            }
+        }
+        else
+        {
+            <li>此课程无视频</li>
+        }
+    }
+</ol>

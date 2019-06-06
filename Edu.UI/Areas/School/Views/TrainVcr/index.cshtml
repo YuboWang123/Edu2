@@ -1,0 +1,116 @@
+﻿
+
+@using Edu.Entity.TrainLesson
+@using Edu.UI.Areas.School.Models.VcrViewModels
+@model Edu.UI.Areas.School.Models.VcrViewModels.VcrListViewModel
+
+<!--vcr index-->
+
+<link href="~/Areas/School/Public/js/TrainVcr/VcrFileinput/fileinput.css" rel="stylesheet" />
+<link href="~/Areas/School/Public/css/TrainVcr/index.css" rel="stylesheet" />
+<script src="~/Areas/School/Public/js/TrainVcr/VcrFileinput/fileinput.js"></script>
+<script src="~/Areas/School/Public/js/TrainVcr/VcrFileinput/zh.js"></script>
+<script src="~/Areas/School/Public/js/TrainVcr/VcrFileinput/vcrFileinput.js"></script>
+
+
+<div class="row" id="vcrPanel">
+    <div class="col-md-3 left">
+        <div style="" class="lsnInfo">
+            <div class="" style="overflow: hidden;">
+                <a href="javascript:;" class="text-bold" onclick="vcrFns.goLsn('@Model.LessonId')"> @Model.LessonName</a>
+            </div>
+        </div>
+
+        <div class="btn btn-group" style="padding:0;">
+            <button class="btn btn-primary bck"><i class="glyphicon glyphicon-chevron-left"></i>返回</button>
+            <button class="btn btn-info addMdl" onclick="vcrFns.addVcr()"><i class="glyphicon glyphicon-plus"></i></button>
+        </div>
+
+        <div id="leftVcrs">  
+            @Html.Partial("trainvcrList", Model.VcrListPag)
+        </div>
+    </div>
+
+    <div class="col-md-9 right" id="rgt">
+
+        <div class="uploaders" id="uploaders">
+            <!--partial view goes.-->
+            @Html.Partial("VTR", new Vcr_Resource_TestViewModel())
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="del" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @using (Ajax.BeginForm("del", "trainvcr", new AjaxOptions { HttpMethod = "post", OnSuccess = "changeSaved" }))
+            {
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">删除记录</h4>
+                </div>
+                <div class="modal-body">
+                    <h5>将要删除选中的记录,是否继续?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">确定</button>
+                </div>
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            @using (Ajax.BeginForm("vcradd", "trainvcr", new AjaxOptions { HttpMethod = "post",OnSuccess = "vcrFns.addCb" }))
+            {
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">增加视频记录</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("vcrAdd", new Vcr() {LessonId = Model.LessonId})
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            }
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @using (Ajax.BeginForm("Update", "trainvcr", new AjaxOptions { HttpMethod = "post", OnSuccess = "vcrFns.reloadLeft" }))
+            {
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">编辑记录</h4>
+                </div>
+                <div class="modal-body">
+                    <!--will get edit partial view-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript">
+    lessonId = '@Model.LessonId';
+</script>
+
+<script src="~/Areas/School/Public/js/TrainVcr/index.js"></script>
+

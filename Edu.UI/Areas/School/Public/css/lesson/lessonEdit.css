@@ -1,0 +1,118 @@
+﻿.manage-record {
+
+}
+.form-group{
+    margin-bottom:15px;
+}
+
+.panel {
+  
+    margin-right: 15px;
+    margin-left: 15px;
+    padding-bottom: 2em;
+}
+.panel-body{padding:0;}
+.panel-body .form-control {
+   
+    resize:none;    
+    border:none;
+    border-bottom:1px solid #3c3c3c;
+    border-radius:0;
+    height:40px;
+}
+.panel-body textarea.form-control{
+    height:125px;
+}
+
+.panel-body .control-label{
+    text-align:right;
+}
+
+form {
+    border: 1px solid #ddd;
+    padding: 40px 22px;
+    max-width: 730px;
+    box-shadow: 2px 0px 11px 0px rgba(0, 0, 0, .5);
+}
+
+.btn{
+    border-radius:0;
+}
+.pic:hover{
+    
+}
+.pic img{
+    max-height:200px;
+    position:relative;
+}
+
+.pic h4 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    -webkit-backface-visibility: hidden; /* 隐藏旋转元素的背面*/
+    backface-visibility: hidden;
+    background: rgba(0, 0, 0, 0.6); /*后面这个0.6是指的背景的透明度*/
+    opacity: 0;
+    -webkit-transition: all 0.35s ease-in-out; /*规定提示信息怎样出现ease-in-out以慢速度开始和结束*/
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+}
+
+
+
+.ih-item {
+    position: relative;
+    width: 220px;   
+    margin-left:15%;
+}
+
+.ih-item h3{color:#dddddd;margin-top:40%;}
+
+    .ih-item .img img {
+        position: relative;
+        width: 220px;
+        height: 220px;
+        max-width: 100%;
+    }
+
+    .ih-item .info {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        -webkit-backface-visibility: hidden; /* 隐藏旋转元素的背面*/
+        backface-visibility: hidden;
+        background: rgba(0, 0, 0, 0.6); /*后面这个0.6是指的背景的透明度*/
+        opacity: 0;
+        -webkit-transition: all 0.35s ease-in-out; /*规定提示信息怎样出现ease-in-out以慢速度开始和结束*/
+        -moz-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+    }
+
+    .ih-item a:hover .info {
+        opacity: 1; 
+    }
+
+.csMain{
+ 
+}
+
+.page-header{position:relative; }
+.contentTips{
+    position:absolute;
+    display:none;
+    text-align:center;
+    height:105px;
+    background:#ff6a00;
+    font-size:large;
+    line-height:100px;
+    width:100%;
+    color:#fff;
+    z-index:2;
+}

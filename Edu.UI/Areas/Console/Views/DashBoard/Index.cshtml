@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Edu.UI.Areas.School.Models.ConsoleTopMenu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Console/Views/Shared/_LayoutBase.cshtml";
+}
+
+@section style{
+
+    <link href="~/Areas/Console/Public/css/layout/style.css" rel="stylesheet" />
+    <link title="blue" href="~/Areas/Console/Public/css/layout/dermadefault.css" rel="stylesheet" />   
+    <link href="~/Areas/Console/Public/css/layout/templatecss.css" rel="stylesheet" />
+}
+
+@Html.Partial("top")
+
+<div class="down-main">
+    <div class="left-main left-full">
+        @Html.Partial("sidebar")
+    </div>
+    <div class="maincontent right-product my-index right-full">
+        <div class="container-fluid">
+            <div class="info-center" id="main">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{  
+    <script src="~/Areas/Console/Public/js/app.js"></script>
+}

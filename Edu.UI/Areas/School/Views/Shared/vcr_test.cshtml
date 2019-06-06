@@ -1,0 +1,28 @@
+﻿
+@model IEnumerable<Edu.Entity.TrainLesson.VcrTest>
+@{
+    var t = Model == null ? 0 : Model.Count();
+}
+
+
+@{
+    if (t == 0)
+    {
+        <p class="margin-large-top">没有测试题</p>
+    }
+    else
+    {
+
+        foreach (var item in Model)
+        {
+            <div style="margin-top:10px;" property="@item.Id">
+                @Html.Raw(item.Qustion)
+            </div>
+        }
+
+    }
+}
+
+
+
+

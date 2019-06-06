@@ -1,0 +1,40 @@
+﻿@model Edu.Entity.TrainLesson.Vcr
+
+
+<div class="form-horizontal">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.LessonId)
+    @Html.HiddenFor(model => model.VideoPath)
+
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2">名称</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TitleOrName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TitleOrName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">序号</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OrderCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OrderCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xm-2">免费</label>
+        <div class="col-md-2 col-sm-4  col-xm-4  checkbox">
+            @Html.CheckBoxFor(a => a.IsFree, new { @class = "checkbox" })
+        </div>
+        <label class="control-label col-md-2  col-sm-2 col-xm-2">立即显示</label>
+        <div class="col-md-2 col-sm-4 col-xm-4 checkbox">
+            @Html.CheckBoxFor(a => a.IsEnabled)
+        </div>
+    </div>
+
+
+</div>

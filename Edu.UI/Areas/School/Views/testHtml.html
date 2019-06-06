@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .ih-item {
+            position: relative;
+            width: 220px;
+            height: 220px;
+        }
+
+      
+
+        .ih-item .img img {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            max-width: 100%;
+        }
+
+        .ih-item .info {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            -webkit-backface-visibility: hidden; /* 隐藏旋转元素的背面*/
+            backface-visibility: hidden;
+            background: rgba(0, 0, 0, 0.6); /*后面这个0.6是指的背景的透明度*/
+            opacity: 0;
+            -webkit-transition: all 0.35s ease-in-out; /*规定提示信息怎样出现ease-in-out以慢速度开始和结束*/
+            -moz-transition: all 0.35s ease-in-out;
+            transition: all 0.35s ease-in-out;
+        }
+        .ih-item a:hover .info {
+            opacity: 1; /*有opacity有0变成1*/
+        }
+    </style>
+</head>
+<body>
+    <div class="ih-item">
+
+        <a href="#">
+            <div class="img"><img src="../../../Areas/School/Public/image/leftimg.png" alt="img"></div>  //图片
+            <div class="info">
+                //提示文字
+                <h3>这里是新闻标题简要介绍一下吗</h3>
+            </div>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿
+
+@Html.Partial("headTitle", null)
+<!--pg for list all school-->
+<div class="container">
+    <div class="row manage-detail">
+        <div class="col-md-2 col-lg-2">
+            @Html.Partial("provinceSelect")          
+        </div>
+        <div class="col-md-2 col-lg-2">
+            <div id="cityList">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle mystyle-color" data-toggle="dropdown" aria-expanded="false">城市列表<span class="caret"></span></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2">
+            <div id="cityCnyList">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle mystyle-color" data-toggle="dropdown" aria-expanded="false">县级列表<span class="caret"></span></button>
+                </div>
+            </div>
+        </div>
+            
+        <div class="col-md-2 col-lg-2">
+            @Html.Partial("schoolTypeSelect", null)
+        </div>
+        
+        
+     
+    </div>
+
+    <div class="row">
+        <div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Areas/Console/Public/js/school/list.js"></script>

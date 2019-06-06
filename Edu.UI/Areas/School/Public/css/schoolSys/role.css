@@ -1,0 +1,32 @@
+﻿
+.topDiv {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+}
+
+#roleDiv{
+    clear:both;
+    padding-top: 0px;
+    border-top: 1px solid #ddd;
+   
+}
+
+
+#roleDiv .left{
+    border-right: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.authSbmit {
+    margin-top: 3em;
+    padding: 5px 18px;
+    
+}
+
+.right {
+    padding-top: 1.7em;
+}
+.table {
+    margin-top: 35px;
+}

@@ -1,0 +1,66 @@
+﻿@using Edu.Entity.SchoolFinance
+@using Edu.UI.Models
+@model Edu.UI.Models.IndexViewModel
+
+@section style
+{
+    <link href="~/Content/tabs.css" rel="stylesheet" />
+    <link href="~/Scripts/lib/avatar/avatar.css" rel="stylesheet" />
+    <link href="~/Content/manage/index.css" rel="stylesheet" />
+}
+
+<h3>会员中心</h3>
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-3 col-xm-12 left">
+            <div id="avatar" class="text-center ih-item">
+                <img alt="" src="@Model.ApplicationUser.Avatar" class="img-circle" />
+                <p class="info">
+                    <label>@Model.ApplicationUser.UserName</label>
+                </p>
+            </div>
+
+
+            <ul class="nav nav-stacked title-list">
+                <li class="on">
+                    <a href="javascript:;">个人信息</a>
+                </li>
+                <li>
+                    <a href="javascript:;">激活卡</a>
+                </li>
+                <li>
+                    <a href="javascript:;">我的订单</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+
+            <div class="product-wrap">
+                <div class="product" style="display: block;">
+                    <h3 class="text-indent" style="margin-left: 2em;">用户信息</h3>
+                    @Html.Partial("_indexUser", Model.ApplicationUser)
+                </div>
+                <div class="product" style="display: none;">
+
+                    @Html.Partial("_indexPay", new CardViewModel())
+                </div>
+                <div class="product" style="display: none;">
+
+                    @Html.Partial("_indexOrder", Model.MyCards ?? new List<FinCardDto>())
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+@section scripts
+{
+   
+    <script src="~/Scripts/lib/avatar/cropper.js"></script>
+    <script src="~/Scripts/lib/avatar/imgPreviewPth.js"></script>
+    <script src="~/Scripts/manage/index.js"></script>
+}

@@ -1,0 +1,60 @@
+﻿@using Edu.Entity.TrainBase
+@model Base_Period
+
+<div class="form-horizontal">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.PeriodID)
+ 
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PeriodName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PeriodName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PeriodName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">排序</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OrderCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OrderCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2">请求类别</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RequestType, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RequestType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2">备注</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Memo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Memo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-2"></label>
+    <div class="col-md-2">
+        <label class="control-label">启用</label>
+        @Html.RadioButtonFor(model => model.IsEnable, 1, new { @checked = "true" })
+    </div>
+
+    <div class="col-md-3">
+        <label class="control-label">不启用</label>
+        @Html.RadioButtonFor(model => model.IsEnable, 0, new { })
+    </div>
+
+</div>
+

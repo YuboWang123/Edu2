@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>管理控制台</title>
+
+    @Styles.Render("~/Content/css")
+    @RenderSection("style", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+</head>
+<body>
+
+    @RenderBody()
+
+
+   
+
+    @RenderSection("scripts", required: false)
+
+
+
+
+</body>
+</html>

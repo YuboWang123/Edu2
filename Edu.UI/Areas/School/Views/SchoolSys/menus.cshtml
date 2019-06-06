@@ -1,0 +1,147 @@
+﻿@using Edu.UI.Areas.School.Models
+<h3 class="" style="margin-top: 30px;">顶部导航管理</h3>
+
+
+<div class="page-header">
+    <div class="pull-left">
+        <h4 class="title">---</h4>
+        <div class="btn-group btn-group-sm">
+            <button class="btn btn-default frsh">刷新</button>
+            <button class="btn btn-info addMdl"><i class="glyphicon glyphicon-plus"></i>增加</button>
+        </div>
+    </div>
+</div>
+
+<div id="menu" style="width:100%;">
+    @Html.Partial("menuTopTable")
+</div>
+
+<div class="text">
+    <dl>
+        <dt>
+            说明
+        </dt>
+        <dd style="padding-left: 3em;">
+            <em class="text-blue">
+                本页面用于技术人员扩展项目或修改功能.
+            </em>
+        </dd>
+    </dl>
+</div>
+
+
+
+<!--modal-->
+
+<div class="modal fade" id="topMenuAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">增加顶部导航</h4>
+            </div>
+                @using (Ajax.BeginForm("AddTopMenu", new AjaxOptions() { HttpMethod = "Post", OnSuccess = "submitOk" }))
+                {
+                    <div class="modal-body">
+                        @Html.Partial("menuForm",new ConsoleTopMenu())
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">确认</button>
+                    </div>
+                }
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="topmenuDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="">删除顶部导航</h4>
+            </div>
+          @using (Ajax.BeginForm("delTopMenu", new AjaxOptions() { OnSuccess = "submitOk" }))
+          {
+              <div class="modal-body">
+                  即将删除顶部导航:<label></label>，继续？
+                  <input type="hidden" value="-1" name="id"/>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                  <button type="submit" class="btn btn-primary">是的</button>
+              </div>
+          }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="topmenuEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="">
+                    <span> 修改顶部导航</span>
+                </h4>
+            </div>
+            
+            @using (Ajax.BeginForm("EditTopMenu", new AjaxOptions() { OnSuccess = "submitOk" }))
+            {
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">确认</button>
+                </div>
+            }   
+          
+        </div>
+    </div>
+</div>
+
+ 
+
+ 
+<div class="modal fade" id="sidebarEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="">修改板块</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sideContentEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="">编辑菜单</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/Areas/School/Public/js/SchoolSys/menu.js"></script>

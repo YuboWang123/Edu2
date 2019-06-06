@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Edu.Entity.TrainLesson.VcrFile>
+
+
+@{
+    int cnt = Model == null ? 0 : Model.Count();
+    if (cnt > 0)
+    {
+        foreach (var item in Model)
+        {
+            <div class="row fileRow">
+                <i class="fa fa-file"></i>
+                <a href="javascript:;" property="@item.Id">@item.Name</a>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="text-center">没有相关记录</p>
+    }
+}

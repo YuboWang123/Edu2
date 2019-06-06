@@ -1,0 +1,74 @@
+﻿@model Edu.Entity.School.SchoolEntity
+
+<script src="~/Areas/School/Public/js/SchoolSys/schoolProfile.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-7">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <label>学校资料</label>
+                </div>
+                <div class="panel-body">
+
+                    @using (Ajax.BeginForm("AddSchool", "schoolsys", new AjaxOptions { OnSuccess = "callback", HttpMethod = "post" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        @Html.HiddenFor(model=>model.EndDay)
+                        @Html.HiddenFor(model=>model.MakeDay)
+                        @Html.HiddenFor(model=>model.Maker)
+                        @Html.HiddenFor(model=>model.PayDay)
+                        @Html.HiddenFor(model=>model.Payed)
+                        @Html.HiddenFor(model=>model.SchoolMasterId)
+                        @Html.HiddenFor(model=>model.SchoolmasterPhone)
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">学校名称</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(a => a.SchoolName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.SchoolName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">域名</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(a => a.SchoolUrl, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">地址/简介</label>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(a => a.Memo, new { @class = "form-control editor", @rows = 6, @style = "width:100%;resize:none;" })
+                                @Html.ValidationMessageFor(m => m.Memo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">邮编</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(a => a.PostCode, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.PostCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2"></label>
+                            <div class="col-md-5">
+                                <button type="submit" class="btn btn-primary">确认</button>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    var maker = '@Model.Maker';
+</script>

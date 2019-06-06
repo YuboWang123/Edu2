@@ -1,0 +1,64 @@
+﻿@using Edu.UI.Models.TrainViewModels
+@model LessonVcrViewModel
+
+@section style{
+    <link href="~/Content/tabs.css" rel="stylesheet" />
+
+    <link href="~/Content/lesson/index.css" rel="stylesheet" />
+}
+@{
+    string thumbPath = string.IsNullOrWhiteSpace(Model.baseLesson.ImagePath) ? Edu.Entity.AppConfigs.defaultImagePath : Model.baseLesson.ImagePath;
+}
+<section class="container lsnInfo lsnHead">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 ">
+            <div class="thumbnail"> <img alt="" src="@thumbPath" /></div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8" style="position:relative;">
+            <div>
+                <ul>
+                    <li><h3>@Model.baseLesson.TitleOrName</h3></li>
+                    <li>共 @ViewData["vcrcnt"] 节</li>
+                    <li>@Model.baseLesson.MakeDay.ToShortDateString()  上传</li>
+                    <li class="price">@Model.baseLesson.Price.ToString("c")</li>
+                    <li style="padding-top:50px;">
+                        @if (Model.UserRole == "vip")
+                        {
+                            <a class="btn btn-lg btn-warning" href="/lesson/lessonstart/@Model.baseLesson.Id">立即学习</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-lg btn-warning" href="javascript:;">支付宝购买</a>
+                        }
+                    </li>
+                </ul>
+
+                <a href="/lesson/list" class="leaveBtn" style="">
+
+                    返回列表
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="container restInfo vcrList">
+    <div class="row">
+        <div class="col-md-9">
+            @Html.Partial("indexTabs")
+        </div>
+
+        <div class="col-md-3">
+
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script>
+        var lsn = '@Model.baseLesson.Id';
+    </script>
+    <script src="~/Scripts/basiclesson/index.js"></script>
+}

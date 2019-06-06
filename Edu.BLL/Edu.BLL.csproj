@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="IBLL.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Console\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspose.Words" Version="18.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edu.Common\Edu.Common.csproj" />
+    <ProjectReference Include="..\Edu.DAL\Edu.DAL.csproj" />
+    <ProjectReference Include="..\Edu.Entity\Edu.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ClosedXML">
+      <HintPath>..\packages\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Say.Office">
+      <HintPath>..\packages\Say.Office.dll</HintPath>
+    </Reference>
+    <Reference Include="Wyb.DbUtility">
+      <HintPath>..\packages\Wyb.DbUtility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

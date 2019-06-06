@@ -1,0 +1,40 @@
+﻿  .btn-freeze {
+      background-color: #0000cd;
+      color: #fff;
+  }
+
+  .btn-freeze:hover {
+      color: #ddd;
+  }
+
+
+  .statuslist > dl {
+      float: left;
+      margin-top: unset;
+      margin-bottom: unset;
+      border: 1px solid #ddd;
+  }
+
+  .statuslist > dl dt {
+      border-bottom: 1px solid #ddd;
+      font-weight: normal;
+      padding: 0 10px;
+  }
+
+  .statuslist > dl dt, .statuslist > dl dd {
+      text-align: center;
+  }
+
+  #cardTable {
+      margin-top: 3em;
+  }
+
+  .table {
+      margin-top: unset;
+      background-color: #ddd;
+  }
+
+  .modal-content{
+      border-radius: 0;
+      border:1px solid #222;
+  }

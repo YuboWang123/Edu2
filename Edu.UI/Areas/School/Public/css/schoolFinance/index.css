@@ -1,0 +1,21 @@
+﻿body {
+}
+input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, input[type="month"].form-control {
+    line-height: unset;
+}
+.waiting{
+    background: url(../../image/loading.gif) no-repeat center;
+}
+
+select.form-control.unityType {
+    width: 55px !important;
+    padding-left: 5px;
+}
+
+.table .st{
+    font-size:smaller;
+}
+.modal-content{
+    border-radius: 0;
+    border:1px solid #222;
+}

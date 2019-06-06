@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Edu.UI.Areas.School.Models.ConsoleTopMenu>
+
+<ul>
+    @if (Model != null && Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {
+            <li id="@item.Id" class="jstree-open">
+                @item.Name
+                <ul id="sidebarNode">
+                    @if (item.Modules.Count > 0)
+                    {
+                        foreach (var moduleSide in item.Modules)
+                        {
+                            <li id="module_@moduleSide.Id" class="jstree-open">
+                                @moduleSide.Name
+                                <ul id="cntNode">
+                                    @foreach (var in_item in moduleSide.ConsoleSideMenus)
+                                    {
+                                        <li data-jstree='{"icon":"glyphicon glyphicon-list-alt"}' id="content_@in_item.Id">
+                                            @(string.IsNullOrEmpty(in_item.Name) ? "没有子模块" : in_item.Name)
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+
+                    }
+                </ul>
+            </li>
+        }
+    }
+
+
+</ul>

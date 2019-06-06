@@ -1,0 +1,119 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>代码简洁的滑动门（tab）jquery插件 - 懒人建站</title>
+
+    <style type="text/css">
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+            font: 12px normal "宋体", Arial, Helvetica, sans-serif;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+        }
+
+        #tabbox {
+            width: 600px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .tab_conbox {
+            border: 1px solid #999;
+            border-top: none;
+        }
+
+        .tab_con {
+            display: none;
+        }
+
+        .tabs {
+            height: 32px;
+            border-bottom: 1px solid #999;
+            border-left: 1px solid #999;
+            width: 100%;
+        }
+
+            .tabs li {
+                height: 31px;
+                line-height: 31px;
+                float: left;
+                border: 1px solid #999;
+                border-left: none;
+                margin-bottom: -1px;
+                background: #e0e0e0;
+                overflow: hidden;
+                position: relative;
+            }
+
+                .tabs li a {
+                    display: block;
+                    padding: 0 20px;
+                    border: 1px solid #fff;
+                    outline: none;
+                }
+
+                    .tabs li a:hover {
+                        background: #ccc;
+                    }
+
+            .tabs .thistab, .tabs .thistab a:hover {
+                background: #fff;
+                border-bottom: 1px solid #fff;
+            }
+
+        .tab_con {
+            padding: 12px;
+            font-size: 14px;
+            line-height: 175%;
+        }
+    </style>
+    <script src="http://lib.sinaapp.com/js/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            jQuery.jqtab = function(tabs,tabcon) {
+                $(tabcon).hide();
+                $(tabs + " li:first").addClass("thistab").show();
+                $(tabcon + ":first").show();
+
+                $(tabs + " li").mouseover(function () {
+                    $(tabs + " li").removeClass("thistab");
+
+                    $(this).addClass("thistab");
+                    $(tabcon).hide();
+                    var activeTab = $(this).find("a").attr("tab");
+                    $("#" + activeTab).show();
+                    return false;
+                });
+            };
+            /*调用方法如下：*/
+            $.jqtab("#tabs",".tab_con");
+        });
+    </script>
+</head>
+<body>
+    <div id="tabbox">
+        <ul class="tabs" id="tabs">
+            <li><a tab="tab1">我的学习</a></li>
+            <li><a tab="tab2">我的班级</a></li>
+        </ul>
+        <ul class="tab_conbox">
+            <li id="tab1" class="tab_con"><p>123</p></li>
+            <li id="tab2" class="tab_con"><p>456<br />789</p></li>
+        </ul>
+
+    </div>
+    <p>
+        （tab）jquery插件调用方法："#tabs",".tab_con" 这里的#tabs是jquery选项卡的链接按钮的外层ID，.tab_con是要显示的的内容类名。一个页面可以多次使用。
+    </p>
+
+
+</body>
+</html>

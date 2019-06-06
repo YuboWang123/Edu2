@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Edu.UI.Areas.School.Models.ConsoleTopMenu>
+
+@{
+    int cnt = Model == null ? 0 : Model.Count();
+}
+
+<table class="layui-table">
+    <thead>
+        <tr>
+            <th>选择</th>
+            <th>序号</th>
+            <th>顶部导航名称</th>
+            <th>创建人</th>
+            <th>模块数量</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@{
+    if (cnt > 0)
+    {
+        foreach (var iteMenu in Model)
+        {
+            <tr data-bind="@iteMenu.Id">
+            <td><input value="@iteMenu.Id" class="" type="checkbox"/></td>
+            <td>@iteMenu.OrderNo</td>
+            <td>@iteMenu.Name</td>
+            <td>@iteMenu.Maker</td>
+                <td>@iteMenu.Modules.Count </td>
+                <td>
+                    <div class="btn btn-group btn-group-xs">
+                        <a class="btn btn-default" data-id="@iteMenu.Id" href="javascript:;">编辑</a>
+                  
+                        <a class="btn btn-info" data-id="@iteMenu.Id" href="javascript:;">子目录</a>
+
+                        <a class="btn btn-danger" data-id="@iteMenu.Id" href="javascript:;">删除</a>
+                    </div>
+                </td>
+        </tr>
+        }
+    }
+    else
+    {
+        <tr>
+          
+            <td colspan="6">no content</td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

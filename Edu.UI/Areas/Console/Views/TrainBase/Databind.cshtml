@@ -1,0 +1,60 @@
+﻿
+@using Edu.UI.Areas.Console.Models
+@model DataBindViewModel
+
+<!--not finished-->
+<div class="ds-data-list" data-spm="datalist" style="position:relative;">
+    <div class="ds-data-manage" style="border-bottom:1px solid #ddd; position:relative;">
+        <div class="row">
+            <div class="col-md-2 col-lg-2">
+                <h5><i class="glyphicon glyphicon-edit"></i> 设置数据关联</h5>
+            </div>
+            <div class="col-md-2 col-lg-2 depction">
+                <h5><button class="b_a"></button>&nbsp;已选中</h5>
+            </div>
+            <div class="col-md-2 col-lg-2 depction">
+                <h5><button class="catched"></button>&nbsp; 已关联</h5>
+            </div>
+
+            <div class="pull-right">
+                <a href="#" class="btn btn-default">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                    <span> &nbsp;刷新</span>
+                </a>
+
+            </div>
+
+        </div>
+        <div class="contentShow">
+            <div class="ms"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<div class="ds-data-list" data-spm="datalist">
+    <div class="ds-data-manage">
+        @Html.Partial("_DataBindTable", Model)
+        <div style="margin-top:40px;"></div>
+        <div class="pull-left">
+            <a href="#" data-trigger="focus" title="删除选定的关联"
+               class="btn btn-danger btn-lg" data-target="#delBind" data-toggle="modal" disabled>删除关联</a>
+        </div>
+        <div class="pull-right" style="margin-right:5%;">
+
+            <input type="submit" value="清屏" class="btn btn-default btn-lg" />
+            <input type="submit" value="确定" class="btn btn-primary btn-lg" disabled />
+        </div>
+    </div>
+
+</div>
+
+
+
+

@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "video.js@7.5.4",
+      "destination": "Scripts/lib/video.js"
+    }
+  ]
+}

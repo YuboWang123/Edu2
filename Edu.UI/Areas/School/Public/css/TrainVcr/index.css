@@ -1,0 +1,191 @@
+﻿#main
+{
+    width:100%;
+    height:100%;
+    padding-left: 0px;
+     
+}
+
+
+.btn-sm, .btn-group-sm > .btn {
+    border-radius: 0;
+}
+.left,.right{
+    padding-left: 20px;
+}
+
+/*lesson img*/
+    .left .lsnInfo {
+        border-bottom: 1px solid #dcdcdc;
+        padding: 10px 20px;
+    }
+
+        .left .lsnInfo .text-bold {
+            font-size: x-large;
+            font-weight: bolder;
+        }
+        .left .btn {
+            border: initial;
+        }
+.left
+.btn-group-justified > .btn
+,.btn-group-justified > .btn-group 
+{
+    width:unset;
+}
+
+ table td .img-thumbnail {
+    max-width: 100px;
+}
+
+
+.layui-table tbody tr.act,.layui-table tbody tr:hover {
+    background-color: #5FB878;
+    color:#fff;
+}
+ 
+
+#vcrPanel > div.col-md-3 {
+    padding: 0;
+}
+
+#vcrPanel >div.col-md-3{
+   border-right:1px solid #dcdcdc;
+}
+
+
+/*right uploders*/
+#uploaders {
+    padding-top: 10px;
+}
+
+
+div.file-input.file-input-new {
+    display: inline;
+}
+.file-caption-main {
+ display:none;    
+}
+    .file-caption-main
+    .input-group-addon, .input-group-btn {
+    width:unset;
+    }
+
+
+
+    .file-caption-main .form-control {
+        display: none;
+    }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color:#444444;
+}
+
+
+.progress, .progress-bar {
+    height: 20px;
+    border-radius: 0;
+}
+
+.progress-bar {
+    background-color: #2cb47e;
+}
+
+/*right error tips*/
+#rgt{ position:relative;overflow:auto;}
+#rgt>.tips{
+    position:absolute;
+    width:100%;    
+    min-height:50px;
+    z-index:3;
+    left:0px;
+    text-align:center;
+    display:none;
+}
+
+.tips.error{
+    color:#ff0000;
+    font-weight:bolder;
+}
+
+tips.success{
+    color:#3eff36;
+    font-weight:bolder;
+}
+
+.uploaders .tab-pane .title {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px dashed #cecece;
+    color:#b5b5b5;
+     margin-bottom:1.5em;
+}
+
+.uploaders .tab-pane .title:hover {
+    cursor: pointer;
+}
+
+/*tabs content*/
+.btnDel{
+    position:absolute;
+    right:0;
+    top:0;
+    font-size:smaller;
+    display:none;
+}
+
+    .btnDel .glyphicon {
+        margin-right: 3px;
+    }
+
+.uploaders .tab-pane{
+    
+}
+/**tabs*/
+.uploaders .nav-tabs > li > a {
+    color: #bfbfbf;
+}
+
+.uploaders .nav-tabs > li > a.active {
+    color: #222;
+}
+    .uploaders .tab-pane .videoDiv {
+        margin-top:2em;
+        text-align: center;
+        background: linear-gradient(to top right, #CDDC39 0%, #8BC34A 25%, #FFEB3B 100%);
+        padding: 5px;
+    }
+    .uploaders .tab-pane video {
+        max-height: 300px;
+    }
+
+    .uploaders .tab-pane .fileList{
+        line-height:1.5em;
+    }
+    .uploaders .tab-pane .fileList>div:hover {
+      background-color:#e5e5e5;
+    }
+    .uploaders .tab-pane .testList{
+
+    }
+ 
+    .uploaders .tab-pane p.text-black span{
+        margin-right:1em;
+    }
+    .uploaders .tab-pane p.text-black a {
+        color: #0155eb !important;
+    }
+        .uploaders .tab-pane .testList p.text-black a:hover {
+            color: #0553e0;
+        }
+        .uploaders .tab-pane .testList > div {
+            padding: 10px 1.5em;
+        }
+    .uploaders .tab-pane .testList > div:hover {
+        cursor:pointer;
+        background: #dddddd;
+    }
+        .uploaders .tab-pane .testList > div  p, .uploaders .tab-pane .testList > div>p span {
+            font-size: x-small !important;
+        }

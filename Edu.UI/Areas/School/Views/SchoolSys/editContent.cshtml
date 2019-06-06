@@ -1,0 +1,66 @@
+﻿
+
+
+@model  Edu.UI.Areas.School.Models.ConsoleSideBarContentViewModel
+@Html.HiddenFor(a=>a.ConsoleSideMenu.Id)
+
+<!--add module of top menu-->
+ 
+<div class="form-horizontal ">
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConsoleSideMenu.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+          
+            @Html.TextBoxFor(m => m.ConsoleSideMenu.Name, new {@class = "form-control", name = "Name", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.ConsoleSideMenu.Name, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConsoleSideMenu.ActionName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+       
+            @Html.TextBoxFor(m => m.ConsoleSideMenu.ActionName, new {@class = "form-control", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.ConsoleSideMenu.ActionName, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConsoleSideMenu.OrderNo, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            
+            @Html.TextBoxFor(m => m.ConsoleSideMenu.OrderNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ConsoleSideMenu.OrderNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">上一级目录</label>
+        <div class="col-md-10">
+            @Html.HiddenFor(a => a.ConsoleSideMenu.ModuleId)
+            <input type="text" name="moduleName" value="" autocomplete="off" class="form-control" 
+                   onclick="module.showModalDialog(this)" />
+        </div>
+
+    </div>
+    <div class="form-group moduleNew" style="display: none;">
+        @Html.Partial("menuModuleTree", Model.Modules)
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-md-2 control-label"></label>
+        <div class="checkbox">
+            <label>
+             @Html.CheckBoxFor(a=>a.ConsoleSideMenu.IsEnabled) 显示
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <button type="submit" class="btn btn-info">确认</button>
+            @*<button type="button" class="btn btn-default"  data-dismiss="modal">取消</button>*@
+        </div>
+    </div>
+</div>

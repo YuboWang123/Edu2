@@ -1,0 +1,105 @@
+﻿
+
+@model IEnumerable<Edu.Entity.SchoolFinance.FINCardConfig>
+
+<table class="layui-table">
+    <thead>
+        <tr>
+            <th>
+                卡号开头
+            </th>
+            <th>
+                面值
+            </th>
+
+            <th>
+                有效期
+            </th>
+            <th>
+                激活后有效(天)
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+                状态更新日
+            </th>
+            <th>
+                创建人
+            </th>
+            <th>卡数量</th>
+            <th></th>
+        </tr>
+    </thead>
+    @if (Model != null && Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {
+            var dis = item.Count > 0 ? "" : "disabled";
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardPrefix)
+                </td>
+                <td>
+                    @item.UnitPrice.ToString("c")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValidPeriod)
+                </td>
+                <td class="st">
+                    @Html.DisplayFor(modelItem => item.BatchCardStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusDay)
+                </td>
+                <td>
+                    @item.Maker
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                    @if (item.Count > 0)
+                    {
+                       <a class="text-info text-small" href="javascript:;"   @dis onclick="config.getPageList('@item.Id')">[查看]</a> 
+                    }
+                </td>
+
+                <td>
+                    <div class="layui-btn-group">
+                        <button class="layui-btn layui-btn-sm" onclick="config.cardEditShow('@item.Id')">
+                            <i class="layui-icon">&#xe642;</i>修改
+                        </button>
+                        <button class="layui-btn layui-btn-sm" onclick="config.cardGen(this)" data-config="@item.Id" data-bind="@item.CardPrefix">
+                            <i class="layui-icon">&#xe620;</i> 生成列表
+                        </button>
+                        <button class="layui-btn layui-btn-sm layui-btn-danger" data-bind="@item.Count" onclick="config.delCardCfg(this)" rel="@item.Id">
+                            <i class="layui-icon">&#xe640;</i>
+                        </button>
+                        <button class="layui-btn layui-btn-sm layui-btn-warm" data-bind="@item.Count" onclick="config.exportExcle(this)" href="#" rel="@item.Id">
+                          导出Excel
+                        </button>
+                    </div>
+                </td>
+
+            </tr>
+        }
+    }
+
+    else
+    {
+        <tr>
+            <td colspan="9">
+                <p class="noCnt text-center">没有记录</p>
+            </td>
+        </tr>
+
+    }
+
+
+
+
+
+
+</table>

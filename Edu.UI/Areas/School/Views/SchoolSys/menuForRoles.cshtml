@@ -1,0 +1,21 @@
+﻿
+@model Edu.UI.Areas.School.Models.RoleMenuViewModel
+   
+
+@foreach (var item in Model.ConsoleTopMenus.ToList())
+{
+    if (item == null)
+    {
+        <div>无授权</div>
+        return;
+    }
+
+ <dl>
+     <dt>
+         @item.Name
+     </dt>
+     <dd>
+    
+     </dd>
+ </dl>
+}

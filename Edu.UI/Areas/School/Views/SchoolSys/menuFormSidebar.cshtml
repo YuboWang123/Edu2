@@ -1,0 +1,25 @@
+﻿@model Edu.UI.Areas.School.Models.Module
+
+
+ 
+@Html.HiddenFor(a=>a.consoleTopMenuId)
+<div class="form-horizontal ">
+    <div class="form-group">
+       <label class = "col-md-2 control-label">模块名</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" , autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+ 
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">顺序号</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.OrderNo, new { @class = "form-control", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.OrderNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+   
+</div>

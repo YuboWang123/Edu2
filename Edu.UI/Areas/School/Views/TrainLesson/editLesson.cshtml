@@ -1,0 +1,85 @@
+﻿ 
+
+@model Edu.Entity.TrainLesson.TrainBaseLesson
+
+@Html.HiddenFor(a => a.Maker)
+@Html.HiddenFor(a => a.MakeDay)
+@Html.HiddenFor(a => a.ClickTimes)
+@Html.HiddenFor(a => a.VideoCount)
+@Html.HiddenFor(a => a.OrderCode)
+@Html.HiddenFor(a => a.Base_DataBindId)
+@Html.HiddenFor(a=>a.Id)
+
+<div class="form-group">
+    <label class="col-md-2 control-label">课程名称</label>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.TitleOrName, new { @required = "required", htmlAttributes = new { @class = "form-control radius-none",@autocomplete="off" } })
+        @Html.ValidationMessageFor(model => model.TitleOrName, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-2 control-label">价格</label>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Price, new { @required = "required", htmlAttributes = new { @class = "form-control radius-none", @autocomplete = "off" } })
+        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-2 control-label">优惠价</label>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.DiscountPrice, new { htmlAttributes = new { @class = "form-control radius-none", @autocomplete = "off" } })
+        @Html.ValidationMessageFor(model => model.DiscountPrice, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group" style="margin-top:20px;">
+    <label class="col-md-2 control-label">备注信息</label>
+    <div class="col-md-10">
+        @Html.TextAreaFor(model => model.Memo, new { @class = "form-control", @rows = 6, @style = "width:100%;resize:none;" })
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-2 control-label">显示</label>
+    <div class="col-md-10" style="padding-top:5px;">
+        @Html.RadioButtonFor(model => model.IsEnabled, true, new { @checked = "true" }) 是
+        @Html.RadioButtonFor(model => model.IsEnabled, false) 否
+    </div>
+</div>
+<div class="clearfix"></div>
+
+
+
+<div class="form-group clearfix">
+    <label class="col-md-1" style="margin-right:15px;"></label>
+    <input type="hidden" required name="ImagePath" class="ImagePath" value="@Model.ImagePath" />
+    <input id="UploadFile" name="UploadFile" class="file" value="" type="file" data-max-file-count="1">
+</div>
+
+<div class="panel-body pic text-center" style="height:210px">
+
+    <div class="ih-item">
+        <a href="javascript:;">
+            <div class="img">
+                
+                    @if (Model.ImagePath != null)
+                    {
+                        <img src="@Model.ImagePath" alt="img">
+                    }
+                 
+            </div>
+            <div class="info">
+                <h3>删除</h3>
+            </div>
+        </a>
+    </div>
+
+</div>
+ 
+<div class="row" style="margin-top:2em;">
+    <div class="col-md-offset-4 col-md-2">
+        <button type="submit" class="btn btn-info btn-block addOrUpdate">提交</button>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-default btn-block" onclick="lessonHandler.back()">取消</a>
+    </div>
+</div>

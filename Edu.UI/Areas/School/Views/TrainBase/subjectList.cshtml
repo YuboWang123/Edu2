@@ -1,0 +1,42 @@
+﻿
+@using Edu.Entity.TrainBase
+@model IEnumerable<ITrainBase>
+
+@{ 
+    var ttl = Model.Count();
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>名称</th>
+            <th>创建人</th>
+            <th>日期</th>
+            <th>启用</th>
+            <th>操作</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ 
+            if (Model != null&&ttl>0)
+            {
+                foreach(var item in Model)
+                {
+                    <tr>
+                        <td>
+
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>没有内容</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

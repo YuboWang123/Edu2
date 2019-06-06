@@ -1,0 +1,218 @@
+﻿/*reset*/
+html, body, p, h1, h2, h3, h4, h5, h6, form, input, textarea, select, button, fieldset, legend, img, ul, ol, li, dl, dt, dd, th, td, pre, blockquote {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased
+}
+
+body {
+    background-color: #eee;
+    color: #666;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%
+}
+
+ 
+
+
+
+img, fieldset {
+    border: 0;
+    vertical-align: middle
+}
+
+ 
+ 
+
+ul, li, ol {
+    list-style: none
+}
+
+strong, b {
+    font-weight: normal
+}
+
+em, i {
+    font-style: normal
+}
+
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px 18px;
+    padding: 0.35em 0.625em 0.75em
+}
+
+legend {
+    border: 0;
+    padding: 0;
+    white-space: normal;
+    *margin-left: -7px
+}
+
+sup {
+    vertical-align: text-top
+}
+
+sub {
+    vertical-align: text-bottom
+}
+
+s {
+    text-decoration: none;
+}
+/*public*/
+.fl {
+    display: inline;
+    float: left
+}
+
+.fr {
+   
+}
+
+.cf:after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    overflow: hidden
+}
+
+.cf {
+    zoom: 1
+}
+
+.pb10 {
+    padding-bottom: 10px
+}
+
+.mt10 {
+    margin-top: 10px
+}
+
+/* case */
+.case {
+  padding-top:10px;
+    
+}
+
+    .case .title {
+       
+        border-bottom: 3px solid #e7e7e7;
+        padding-bottom: 20px;
+    }
+
+        .case .title h2 {
+            font-size: 20px;
+            font-family: "microsoft yahei";
+        }
+
+    .case .title-list {
+        position: relative;
+        top: 10px;
+    }
+
+        .case .title-list li {
+            width: 146px;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+            display: inline;
+            font-size: 16px;
+        }
+
+            .case .title-list li.on {
+                cursor:pointer;
+                color: rgb(13, 213, 178);
+                font-weight: bold;
+            }
+
+        .case .title-list p {
+            position: absolute;
+            top: 50px;
+            left: 0px;
+            width: 146px;          
+            border-top: 3px solid rgb(13, 213, 178);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .case .title-list b {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-top: -3px;
+            border-style: solid dashed dashed dashed;
+            border-width: 9px;
+            border-color: rgb(13, 213, 178) #fff #fff #fff;
+            overflow: hidden;
+            zoom: 1;
+            font-size: 0;
+        }
+
+.product {
+    min-height: 268px;
+    position: relative;
+    overflow: hidden;
+    display: none;
+    margin-top: 20px;
+    padding-left: 2em;
+}
+
+    .product ul {
+        position: absolute;
+        left: 0px;
+    }
+
+.product-wrap .show {
+    display: block;
+}
+
+.product-wrap .product li {
+    float: left;
+    display: inline;
+    margin-left: 13px;
+    background: #f3f3f3;
+    border: 2px solid #fafafa;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    -ms-transition: 0.4s;
+}
+
+    .product-wrap .product li.ml0 {
+        margin-left: 0px;
+    }
+
+    .product-wrap .product li a.imgwrap {
+        display: block;
+        width: 226px;
+        height: 200px;
+        background: #fff;
+        text-align: center;
+    }
+
+    .product-wrap .product li p {
+        padding-left: 15px;
+        color: #666666;
+        line-height: 22px;
+    }
+
+        .product-wrap .product li p a {
+            color: #666666;
+            text-decoration: none;
+        }
+
+            .product-wrap .product li p a:hover {
+                color: #ff6600;
+                text-decoration: none;
+            }

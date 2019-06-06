@@ -1,0 +1,122 @@
+﻿<!--card config list-->
+@using Edu.BLL.SchoolFinance
+@using Edu.Entity
+@using Edu.Entity.SchoolFinance
+@model Edu.UI.Areas.School.Models.FinanceViewModels.ConfigListViewModel
+
+
+
+<link href="~/Areas/School/Public/css/schoolFinance/index.css" rel="stylesheet" />
+
+
+<div class="page-header">
+    <div class="pull-left">
+        <h4 class="title">---</h4>
+        <div class="btn-group btn-group-sm">
+            <button class="btn btn-default frsh" onclick="config.back()"><i class="glyphicon glyphicon-refresh"></i> 刷新</button>
+            <button class="btn btn-info addMdl"><i class="glyphicon glyphicon-plus"></i>增加</button>
+            <div class="btn-group  btn-group-sm statusBtnGroup" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    状态选择
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" data-type="periodCard">
+                    <li><a href="#" rel="-1">全部</a></li>
+                    <li><a href="#" rel="1">未使用</a></li>
+                    <li><a href="#" rel="2">售出</a></li>
+                    <li><a href="#" rel="3">过期</a></li>
+                    <li><a href="#" rel="4">已删除</a></li>
+                </ul>
+            </div>
+
+        </div>
+         
+    </div>
+</div>
+
+<div class="configTbl">@Html.Partial("configList")</div>
+
+<!--modal-->
+<div class="modal fade" id="ConfigNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">新增设置</h4>
+            </div>
+
+            @using (Ajax.BeginForm("ConfigNew", new AjaxOptions { HttpMethod = "POST", OnSuccess = "config.back()" }))
+            {
+                <div class="modal-body">
+                    @Html.Partial("cardConfigForm", new FINCardConfig() { BatchCardStatus = AppConfigs.BatchCardStatus.Created, BatchType = AppConfigs.BatchType.PeriodCard })
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="CardEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改卡片设置</h4>
+            </div>
+            @using (Ajax.BeginForm("ConfigEdit", new AjaxOptions { HttpMethod = "POST", OnSuccess = "config.back()" }))
+            {
+                <div class="modal-body">
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            }
+
+
+        </div>
+    </div>
+
+</div>
+
+<!--CardGen setting-->
+<div class="modal fade" id="CardGen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    @using (Ajax.BeginForm("GenCards", new AjaxOptions { HttpMethod = "POST", OnFailure = "config.onFailure()", OnSuccess = "config.genSuccess()" }))
+    {
+        <div id="CardGen_body">
+            @Html.Partial("bulkGen", new CardGenParams())
+        </div>
+    }
+</div>
+
+<div class="modal fade" id="ConfigDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">X</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">删除设置</h4>
+            </div>
+            <div class="modal-body">
+                确定删除此设置信息?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <input type="submit" class="btn btn-primary" onclick="config.delCfg()" value="确定">
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal end-->
+
+<script src="~/Areas/School/Public/js/schoolFinance/index.js"></script>

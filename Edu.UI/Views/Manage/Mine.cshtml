@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Edu.Entity.UserLesson.UserLesson>
+
+
+@{
+    ViewBag.Title = "Mine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+    <link href="~/Content/manage/mine.css" rel="stylesheet" />
+}
+
+<h2>Mine</h2>
+
+<main class="container">
+    <section class="left">
+
+    </section>
+
+    <section class="right">
+        <h6>已学习</h6>
+        <div class="row">
+            @if (Model != null && Model.Count() > 0)
+            {
+                Html.Partial("_mineLessonTable");
+            }
+            else
+            {
+                <div class="text-muted text-center pad-top20">没有记录</div>
+            }
+        </div>
+    </section>
+    <div class="clearfix"></div>
+</main>
+
+@section scripts
+{
+    <script src="~/Scripts/manage/mine.js"></script>
+}

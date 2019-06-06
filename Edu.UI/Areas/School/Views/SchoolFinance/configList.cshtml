@@ -1,0 +1,11 @@
+﻿
+
+@using Edu.Entity.SchoolFinance
+@model  Edu.UI.Areas.School.Models.FinanceViewModels.ConfigListViewModel
+
+@Html.Partial("_configTable", Model.configs ?? new List<FINCardConfig>())
+
+<div class="default">
+    @Html.Raw(Model.Pager)
+</div>
+

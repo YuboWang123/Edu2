@@ -1,0 +1,30 @@
+﻿
+@model IEnumerable<Edu.Entity.TrainLesson.TrainBaseLesson>
+
+@{
+
+    int cnt = Model == null ? 0 : Model.Count();
+    if (cnt > 0)
+    {
+        
+        foreach (var item in Model)
+        {
+            var prc = item.Price.ToString() == "0.00" ? "免费" : item.Price.ToString("c");
+            <div class="col-xs-12 col-sm-4  col-md-4 col-lg-3">
+            
+                <a class="thumbnail img-thumbnail" href="../../Lesson/index/@item.Id">
+                    <img alt="@item.TitleOrName" class="" src=" @Url.Content(item.ImagePath)" />
+                </a>
+                <div class="text-center">
+                    <a class="title " href="@Url.Action("index","Lesson",new{ Id=item.Id})">@item.TitleOrName</a>
+                    <p class="price"> @prc</p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="text-center"><h3>没有记录</h3></div>
+    }
+
+}

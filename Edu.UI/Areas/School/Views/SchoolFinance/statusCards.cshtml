@@ -1,0 +1,29 @@
+﻿<!--not user yet-->
+@model Edu.UI.Areas.School.Models.FinanceViewModels.CardListViewModel
+
+
+<script src="~/Areas/School/Public/js/schoolFinance/statusCards.js"></script>
+
+<input type="hidden" name="configid" value="@Model.Cards.FirstOrDefault().CardConfigId"/>
+<input type="hidden" name="status" value="@Model.Cards.FirstOrDefault().Status"/>
+<div class="page-header">
+    <div class="row">
+        <h4 class="title">@Model.ttlRecord 条记录</h4>
+        <div class="col-md-4">
+            <div class="btn-group btn-group-sm">
+                <button class="btn btn-info frsh" onclick="statusList.bck()">
+                    <i class="glyphicon glyphicon-backward"></i> 返回
+                </button>
+                <button class="btn btn-danger delgrp" onclick="statusList.delcards()">
+                    <i class="glyphicon glyphicon-trash"></i> 删除选中
+                </button>
+              
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+@Html.Partial("_cardTable")
+
+

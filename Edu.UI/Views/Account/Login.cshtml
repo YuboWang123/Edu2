@@ -1,0 +1,65 @@
+﻿@using Edu.UI.Models
+@model FrontEndLoginViewModel
+@{
+    ViewBag.Title = "登录";
+}
+
+@section style{
+
+    <link href="~/Content/account/login.css" rel="stylesheet" />
+}
+
+ 
+<div class="container">
+    <div class="row mar-top40">
+        
+        <div class="col-md-offset-3 col-md-6">
+            <section id="loginForm" class="login">
+                @using (Html.BeginForm("Login", "Account", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <h3>登录</h3>
+                    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new {@class = "col-md-3 control-label"})
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.UserName, new {@class = "form-control", required = "" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new {@class = "col-md-3 control-label"})
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.Password, new {@class = "form-control", required = "" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 ">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" value="登录" class="btn btn-danger"/>
+                        </div>
+                    </div>
+
+                    @* 在为密码重置功能启用帐户确认后启用此项
+                        <p>
+                            @Html.ActionLink("忘记了密码?", "ForgotPassword")
+                        </p>*@
+                }
+            </section>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

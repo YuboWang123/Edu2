@@ -1,0 +1,55 @@
+﻿.
+
+@section style{
+    <link href="~/Content/default/index.css" rel="stylesheet" />
+}
+
+@Html.Partial("carousel")
+
+
+<section id="latest" class="ind_lsn">
+
+    <div class="container">
+        <content class="title caption">
+            <div class="text-center"> <h2 class="info-center-title">最新课程</h2></div>
+        </content>
+        <div class="row">
+            @Html.Partial("_basicLessonList")
+        </div>
+    </div>
+</section>
+
+<div class="text-center"><a class="btn btn-default" href="/lesson/list">更多课程 <i class="glyphicon glyphicon-menu-right"></i></a></div>
+<section id="best" class="ind_lsn">
+    <div class="container">
+        <content class="title caption">
+            <div class="text-center"> <h2 class="info-center-title">精品课程</h2></div>
+        </content>
+        <div class="row">
+            <h4 class="text-center text-muted"> 暂时没有数据</h4>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="title">
+        <div class="container"> <h3>留言板 MESSAGE BOARD</h3></div>
+    </div>
+    <div class="container" style="height:380px;" >
+        <div class="row">
+            @Html.Partial("usercontact", new Edu.UI.Models.UserMsg())
+        </div>
+    </div>
+</section>
+@section scripts{
+    
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        var aut ='@User.Identity.IsAuthenticated',un='';
+        if (aut === 'Ture') {
+            un = '@User.Identity.Name';
+        };       
+    </script>
+    <script src="~/Scripts/default/index.js"></script>
+}
+

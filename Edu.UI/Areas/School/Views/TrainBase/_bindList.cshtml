@@ -1,0 +1,79 @@
+﻿
+@using Edu.UI.Areas.School.Models
+
+@model DataBindViewModel
+
+<div class="content-list">
+    <section>
+        <div class="hd">学段</div>
+        <div class="bd xd" name="xd">
+            <ul>
+                @if (Model.Base_Periods != null)
+                {
+                    foreach (var s in Model.Base_Periods)
+                    {
+                        <li><a href="javascript:;" rel="xd_@s.Id">@s.TitleOrName</a></li>
+                    }
+                }
+
+            </ul>
+
+        </div>
+        <div class="clearfix"></div>
+    </section>
+
+    <section>
+        <div class="hd">年级</div>
+        <div class="bd nj" name="nj">
+            <ul>
+                @if (Model.Base_Grades != null)
+                {
+                    foreach (var s in Model.Base_Grades)
+                    {
+                        <li>
+                            <a href="javascript:;" rel="nj_@s.Id">@s.TitleOrName</a>
+                        </li>
+                    }
+                }
+            </ul>
+
+        </div>
+        <div class="clearfix"></div>
+    </section>
+    <section>
+        <div class="hd">学科</div>
+        <div class="bd xk" name="xk">
+            <ul>
+                @if (Model.Base_Subjects != null)
+                {
+                    foreach (var s in Model.Base_Subjects)
+                    {
+                        <li><a href="javascript:;" rel="xk_@s.Id">@s.TitleOrName</a></li>
+                    }
+                }
+
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+
+
+
+    <section>
+        <div class="hd">类别</div>
+        <div class="bd lb" name="lb">
+            <ul>
+                @if (Model.Base_Genres != null)
+                {
+                    foreach (var s in Model.Base_Genres)
+                    {
+                        <li>
+                            <a href="javascript:;" rel="lb_@s.Id">@s.TitleOrName</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+</div>

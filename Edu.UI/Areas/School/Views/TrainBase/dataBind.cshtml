@@ -1,0 +1,70 @@
+﻿
+<link href="~/Areas/School/Public/css/databind/databind.css" rel="stylesheet" />
+<script src="~/Areas/School/Public/js/databind/databind.js"></script>
+<div class="ds-data-list" data-spm="datalist">
+    <div class="ds-data-manage" style="position:relative; border-bottom:1px solid #ddd;">
+        <div class="row">
+            <div class="col-md-2 col-lg-2">
+                <h4><i class="glyphicon glyphicon-edit"></i><span class="title"> 数据绑定</span> </h4>
+            </div>
+            <div class="col-md-2 col-lg-2 depction">
+                <h5><span class="active">...</span>&nbsp;已选中</h5>
+            </div>
+            <div class="col-md-2 col-lg-2 depction">
+                <h5><span class="catch">...</span>&nbsp; 已关联</h5>
+            </div>      
+
+        </div>
+        <div class="contentShow">
+            <div class="ms">
+                <h4>更新成功</h4>
+            </div>
+        </div>
+    </div>
+
+ 
+</div>
+
+<div class="ds-data-list" data-spm="datalist">
+    <div class="ds-data-manage">
+        @Html.Partial("_bindlist")
+        <hr />
+        <div class="row">
+            <div class="col-md-2">
+                <a href="#" data-trigger="focus" title="删除选定的关联"
+                   class="btn btn-danger btn-sm delBind">删除关联</a>
+            </div>
+            <div class="col-lg-offset-5 col-md-offset-3">
+                <div class="btn btn-group btn-group-sm">
+                    <input type="submit" value="清屏" class="btn btn-default clrScreen" />
+                    <input type="submit" value="保存关联" class="btn btn-primary sv" />
+                </div>
+            </div>
+        </div>
+         
+    </div>
+
+</div>
+
+<div class="modal fade" id="delBind" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">X</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">删除关联</h4>
+            </div>
+            <div class="modal-body">
+                确定删除 <span style="color:#474747">xx>>yy>>zz>>xx</span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <input type="submit" class="btn btn-primary" onclick="" value="确定">
+            </div>
+        </div>
+    </div>
+
+</div>

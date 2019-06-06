@@ -1,0 +1,106 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 优网学院-直播</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/AppCss")
+
+
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Areas/School/Public/js/lib/layui/css/layui.css" />
+    @RenderSection("style", false)
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-collapse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="/default/index" id="" class="navbar-brand"></a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("全部课程", "list", "lesson", routeValues: new{ area=""}, htmlAttributes: new { @class = "active" })</li>
+                            <li>@Html.ActionLink("我的课程", "mine", "Manage", routeValues: new {area=""}, htmlAttributes: new { @class = "" })</li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </nav>
+        </div>
+
+    </div>
+
+    <div class="body-content container" style="margin-top:55px;">
+        @RenderBody()
+    </div>
+    <section id="footer" class="section footer visible-lg visble-md">
+        <div class="container">
+            <div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
+                <div class="col-sm-12 align-center">
+
+                </div>
+            </div>
+
+            <div class="row align-center copyright">
+                <div class="col-sm-12">
+                    <div class="credits">
+                        <p> 地址：山东省济南市中区  电话：188885678</p>
+                        <p>Copyright 2017 ztuy.com,Inc.All rights reserved 京ICP备17038030号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/AppJs")
+    <script src="~/Areas/School/Public/js/lib/layui/layui.js"></script>
+    <script>
+    layui.config({
+        base: '/Areas/school/Public/js/lib/layui/'
+    }).use('index', function () { });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+@*<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>管理控制台</title>
+
+    @Styles.Render("~/Content/css")
+    @RenderSection("style", required: false)
+    @Scripts.Render("~/bundles/jquery")
+
+</head>
+<body>
+
+    @RenderBody()
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @RenderSection("scripts", required: false)
+
+
+
+
+</body>
+</html>*@

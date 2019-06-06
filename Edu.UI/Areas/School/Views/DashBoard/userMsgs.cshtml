@@ -1,0 +1,50 @@
+﻿
+@model IEnumerable<Edu.Entity.UserMsg>
+
+@{
+    int c = Model == null ? 0 : Model.Count();
+}
+
+<table class="table table-bordered msgTbl">
+    <thead>
+        <tr>
+            <th>联系人</th>
+            <th>联系方式</th>
+            <th>内容</th>
+            <th>日期</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            if (c == 0)
+            {
+                <tr>
+                    <td class="text-center" colspan="4">没有留言信息</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NickName</td>
+                        <td>@item.Connects</td>
+                        <td>@item.Memo</td>
+                        <td>@item.MakeDay.ToShortDateString()</td>
+                        <td>
+                            <a href="javascript:;" property="@item.Id" class="btn btn-xs btn-danger">删除</a>
+                        </td>
+                    </tr>
+                }
+            }
+
+
+        }
+    </tbody>
+</table>
+<script src="~/Areas/School/Public/js/dashBoard/userMsgs.js"></script>
+
+
+
+

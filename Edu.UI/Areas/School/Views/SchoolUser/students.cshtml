@@ -1,0 +1,24 @@
+﻿@using Edu.Entity.School.SchoolUserModels
+@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<SchoolStudent>
+
+
+@Html.Partial("headTitle")
+
+@Html.Partial("stuTable")
+
+
+
+<div class="page-main" style="text-align:center;">
+    @Html.PagedListPager(Model, page => Url.Action("sdudents", "schooluser", new { pg = page }),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions()
+    {
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "train",
+        LoadingElementDuration = 100,
+        OnSuccess = ""
+    }))
+</div>

@@ -1,0 +1,28 @@
+﻿body {
+}
+.navbar{
+    background-color: #0000cd;
+}
+
+
+section {
+    margin-top: 2em;
+}
+
+.body-content .row > div {
+    padding: 1em 2em;
+    margin-top: 1em;
+    background-color: #fff;
+    min-height: 100px;
+}
+form >div>label,form>div>div{   
+    padding-top: 1em;
+}
+
+form>div>label{
+    margin-top: 10px;
+    text-align: right;
+}
+
+
+ 

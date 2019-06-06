@@ -1,0 +1,42 @@
+﻿@using Edu.Entity.SchoolFinance
+@model IList<Edu.Entity.SchoolFinance.FinCardDto>
+
+
+ 
+<table class="layui-table">
+    <thead>
+        <tr>
+            <th>卡号</th>
+            <th>面值</th>
+            <th>持卡人</th>
+            <th>截止日期</th>
+            <th>状态</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model==null || Model.Count==0)
+        {
+            <tr>
+                <td colspan="6" class="text-center">没有记录</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model ?? new List<FinCardDto>())
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td class="text-danger">@item.UnitPrice.ToString("C")</td>
+                    <td>@item.UserId</td>
+                    <td>@item.EndDay.Value.ToString("yyyy-MM-dd")</td>
+                    <td>@item.Status</td>
+                    <td>
+                        <a class="btn btn-danger" onclick="popPay()">充值</a>
+                    </td>
+                </tr>
+            }
+        }
+       
+    </tbody>
+</table>

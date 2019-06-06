@@ -1,0 +1,88 @@
+﻿
+
+@model  Edu.UI.Areas.School.Models.BaseDataViewModel
+
+
+
+@{
+    var ttl = Model.Datas.Count;
+}
+
+
+    <table class="trainbase layui-table">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" /> 全选
+                </th>
+                <th>名称</th>
+                <th>创建人</th>
+                <th>日期</th>
+                <th>启用</th>
+                <th data-field="experience" data-key="1-0-5" class="layui-unselect">
+                    <div class="layui-table-cell laytable-cell-1-0-5">
+                        <span>序号</span>
+                        <span class="layui-table-sort layui-inline">
+                            <i class="layui-edge layui-table-sort-asc" title="升序" onclick="dataFn.orderList(1)"></i>
+                            <i class="layui-edge layui-table-sort-desc" title="降序" onclick="dataFn.orderList(0)"></i>
+                        </span>
+                    </div>
+                </th>
+                <th>操作</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model != null && ttl > 0)
+                {
+                    foreach (var item in Model.Datas)
+                    {
+                        <tr property="@item.Id">
+                            <td>
+                                <input type="checkbox" lay-skin="primary" />
+                            </td>
+                            <td>
+                                @item.TitleOrName
+                            </td>
+                            <td>
+                                @Html.Action("GetUName", new { uid = item.Maker })
+                            </td>
+                            <td>
+                                @string.Format("{0:yyyy/MM/dd dddd}", item.MakeDay)
+                            </td>
+                            <td>
+                                @Html.Action("GetYorN", new { t = item.IsEnabled })
+                            </td>
+                            <td>
+                                @item.OrderCode
+                            </td>
+                            <td>
+                                <div class="layui-btn-group">
+                                    <button class="layui-btn layui-btn-sm layui-btn-danger radius-none" onclick="dataFn.del('@item.Id')">
+                                        <i class="layui-icon">&#xe640;</i>
+                                        删除
+                                    </button>
+                                    <button class="layui-btn layui-btn-sm radius-none" onclick="dataFn.edit('@item.Id')">
+                                        <i class="layui-icon">&#xe642;</i>
+                                        编辑
+                                    </button>
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center">没有内容</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+
+
+

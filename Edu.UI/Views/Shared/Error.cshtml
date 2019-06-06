@@ -1,0 +1,26 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "错误";
+}
+<style>
+    .error {
+       height:450px;
+       margin-top:40px;
+       width:375px;padding-top:200px; 
+      
+       background:url(/Content/images/404_error.png) no-repeat ;
+    }
+    .container p{
+        padding-top:160px;
+        font-size:xx-large;
+    }
+
+</style>
+<div class="row text-center">
+    <h1 class="text-center mar-top40">404 !</h1>
+    <div class="container error">
+        <p class="text-danger">没有找到需要的页面</p>
+    </div>
+</div>
+

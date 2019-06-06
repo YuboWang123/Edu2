@@ -1,0 +1,35 @@
+﻿
+@using Edu.UI.Areas.School.Models
+@model IEnumerable<Edu.UI.Areas.School.Models.Module>
+
+@{
+    var title = Model.FirstOrDefault().consoleTopMenu.Name;
+}
+
+<div class="jstree-container" id="jstree1">
+    <ul>
+        <li class="jstree-open" id="node_1">
+            <span>@title</span>
+            <ul id="innerNode">
+                @foreach (var item in Model)
+                {
+                    <li id="module_@item.Id">
+                        @(string.IsNullOrEmpty(item.Name) ? "没有子模块" : item.Name)
+                        @if (item.ConsoleSideMenus != null)
+                        {
+                            <ul>
+                                @if (item.ConsoleSideMenus.Count() > 0)
+                                {
+                                    foreach (var inner in item.ConsoleSideMenus)
+                                    {
+                                        <li class="jstree-open" data-jstree='{"icon":"glyphicon glyphicon-list-alt"}' id="@inner.Id"> @inner.Name</li>
+                                    }
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
+</div>

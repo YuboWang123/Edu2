@@ -1,0 +1,25 @@
+﻿
+ 
+@model Edu.UI.Areas.School.Models.Module
+
+<!--add module of top menu-->
+<div class="form-horizontal ">
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @Html.HiddenFor(a=>a.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.OrderNo, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.OrderNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.OrderNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    
+</div>

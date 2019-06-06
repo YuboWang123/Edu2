@@ -1,0 +1,18 @@
+﻿body {
+}
+
+#register {
+   
+}
+#register form {
+    border: 1px solid #ddd;
+    padding: 3em;
+    background-color: #fff;
+    margin-top: 3em;
+}
+#register form label {
+    font-size: smaller;
+}
+#register input[type="submit"] {
+    
+}

@@ -1,0 +1,31 @@
+﻿body {
+    font-family: "microsoft:Yahei";
+}
+main{
+    margin-top: 50px;
+}
+
+main>section{
+   float: left;
+   min-height: 550px;
+   margin-bottom:40px;
+}
+
+section.left{
+    width: 23%;
+    background-color: #eee;
+}
+section.right{
+    width: 73%;
+    margin-left: 4%;
+}
+
+
+section.right>div{
+   min-height: 270px;
+  
+}
+
+ section.right>h3:last-child{
+     margin-top: 20px;
+ }

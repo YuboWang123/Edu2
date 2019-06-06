@@ -1,0 +1,20 @@
+namespace Edu.UI.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class addBatchcardstatus1 : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.FINCardConfigs", "BatchCardStatus", c => c.Int(nullable: false));
+            DropColumn("dbo.FINCardConfigs", "CardStatus");
+        }
+        
+        public override void Down()
+        {
+            AddColumn("dbo.FINCardConfigs", "CardStatus", c => c.Int(nullable: false));
+            DropColumn("dbo.FINCardConfigs", "BatchCardStatus");
+        }
+    }
+}

@@ -1,0 +1,135 @@
+﻿body {
+    padding-top: 5px;
+    margin: 0;
+    background: url(/Areas/Console/Public/image/timg.jpg) no-repeat;
+    z-index: -10;
+    background-size: cover;
+}
+
+
+* {
+    font-family: "Microsoft YaHei";
+}
+
+/*#skinbox*/
+.showbox {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    /*position:absolute;*/
+    width: 100%;
+    top: 0;
+    left: 0;
+    zoom: 1;
+    height: 100%;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+.nav > li > a:hover, .nav > li > a:focus, .navbar-nav > li > .nav:hover {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+div.info-center {
+    margin-top: 20%;
+}
+
+#loginForm {
+    color: #fff;
+}
+
+    #loginForm .title {
+        display: inline-block;
+        font-size: x-large;
+        margin-left: 20%;
+        margin-bottom: 25px;
+    }
+    /*#loginForm #pan{ position:absolute;left:0;top:0;width:100%;height:300px;background:#fff; opacity:.2;}*/
+    #loginForm label {
+        color: #fff;
+        letter-spacing: .1em;
+    }
+
+    #loginForm .form-group {
+        margin-bottom: 15px;
+    }
+
+        #loginForm .form-group .form-control {
+            border-radius: 0px;
+        }
+
+        #loginForm .form-group span {
+            border: none;
+        }
+
+    #loginForm .btn {
+        color: #fff;
+        width: 135px;
+        height: 135px;
+        letter-spacing: .3em;
+        background: #2d5496;
+        opacity: .6;
+        margin-top: 0px;
+    }
+
+        #loginForm .btn:hover {
+            border: #87C6F9 1px solid;
+        }
+
+@media (min-width:544px) {
+    #loginForm .btn {
+        color: #fff;
+        width: 165px;
+        height: 185px;
+        letter-spacing: .2em;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width:992px) {
+    #loginForm .btn {
+        color: #fff;
+        font-size: larger;
+        width: 145px;
+        height: 145px;
+        letter-spacing: .3em;
+        margin-top: 0px;
+    }
+}
+
+#loginForm .text-danger {
+    color: #fff;
+}
+
+header ul {
+    margin-right: 30px;
+    margin-top: 0px;
+    color: #fff;
+}
+
+    header ul.nav li {
+        display: inline;
+    }
+
+        header ul.nav li a {
+            display: inline;
+            color: #fff;
+        }
+
+
+            header ul.nav li a:hover {
+                color: #f89955;
+                text-decoration: none;
+            }
+
+.mr .visible-md p {
+    color: #fff;
+    font-size: large;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+    .mr .visible-md p.bck {
+        color: #eee;
+        text-shadow: 2px 2px 0 #666, 2px 2px 0 #eee;
+    }

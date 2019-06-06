@@ -1,0 +1,53 @@
+﻿
+@model Edu.UI.Areas.School.Models.FinanceViewModels.CardListViewModel
+<script src="~/Areas/School/Public/js/schoolFinance/cardList.js"></script>
+
+<link href="~/Areas/School/Public/css/schoolFinance/cardList.css" rel="stylesheet" />
+
+<!--card list when click the config.-->
+<div class="page-header">
+    <div class="row">
+        <h4 class="title">@Model.ttlRecord 张卡记录</h4>
+        <div class="col-md-4">
+            <div class="btn-group btn-group-sm">
+                <button class="btn btn-info frsh" onclick="config.back()">
+                    <i class="glyphicon glyphicon-backward"></i> 返回
+                </button>
+                <button class="btn btn-danger delgrp" onclick="cardlist.delCards()"><i class="glyphicon glyphicon-trash"></i> 删除选中</button>
+                <button class="btn btn-default frsh" onclick="cardlist.refresh()">
+                    <i class="glyphicon glyphicon-refresh"></i> 刷新
+                </button>
+                <button class="btn btn-warning" onclick="cardlist.clear()"><i class="glyphicon glyphicon-trash"></i> 删除所有</button>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="btn-group btn-group-sm statuslist">
+                @if(Model.StatusCount!=null)
+                {
+                    foreach (var kv in Model.StatusCount)
+                    {
+                        <dl class="@kv.Key">
+                            <dt>
+                                <a class="btn btn-link" href="javascript:;" onclick="cardlist.getStatusList(this)">@kv.Key</a>
+                            </dt>
+                            <dd>@kv.Value</dd>
+                        </dl>
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<hr />
+<div id="cardTable">
+    @Html.Partial("_cardTable", Model)
+</div>
+
+
+
+

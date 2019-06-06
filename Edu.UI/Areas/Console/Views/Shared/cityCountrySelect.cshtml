@@ -1,0 +1,75 @@
+﻿<!--country inside a city-->
+
+
+
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle mystyle-color" data-toggle="dropdown" aria-expanded="false">县级列表<span class="caret"></span></button>
+    <!----下拉框选项---->
+    <div class="dropdown-menu topbar-nav-list cityCntry">
+        @{
+            if (ViewData["cityCntry"] == null)
+            {
+                return;
+            }
+
+            var prns = (ViewData["cityCntry"] as SelectList);
+            var crc = prns.Count(); int s = 0;
+
+
+            for (int i = 0; i < crc / 6; i++)
+            {
+                <div class="topbar-nav-col">
+                    <ul>
+                        @{
+
+                            for (s = i * 6; s < (i + 1) * 6; s++)
+                            {
+                                <li>
+                                    <a href="#" property="@prns.ElementAt(s).Value">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        <span class="">@prns.ElementAt(s).Text</span>
+                                    </a>
+                                </li>
+                            }
+
+
+                        }
+                    </ul>
+                </div>
+            }
+
+            if (s < crc)
+            {
+                <div class="topbar-nav-col">
+
+                    <ul>
+                        @{
+                            for (; s < crc; s++)
+                            {
+                                <li>
+                                    <a href="#" property="@prns.ElementAt(s).Value">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        <span class="">@prns.ElementAt(s).Text</span>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
+
+                </div>
+
+
+            }
+
+        }
+
+
+
+
+
+
+
+    </div>
+</div>
+
+

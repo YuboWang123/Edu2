@@ -1,0 +1,283 @@
+﻿@using Edu.UI.Areas.School.Models
+@model IEnumerable<Edu.UI.Areas.School.Models.Module>
+<link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
+<link href="~/Areas/School/Public/css/schoolSys/sideBarModule.css" rel="stylesheet" />
+
+<!--this page show operations of sidebars and their sidebar-navs under the certain Top menu -->
+
+<div class="row module">
+    <div class="topDiv mar-top10">
+        <div class="modulePanel">
+            <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                <button type="button" class="btn btn-default" onclick="module.bck()">
+                    <i class="glyphicon glyphicon-menu-left"></i>返回
+                </button>
+                <button type="button" class="btn btn-default" onclick="module.addModule()">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    模块
+                </button>
+                <button type="button" class="btn btn-default" onclick="module.addContent()">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    导航
+                </button>
+                <button type="button" class="btn btn-danger" onclick="module.contentFuncs()">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    删除
+                </button>
+                <button type="button" class="btn btn-success" onclick="module.editModule()">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    编辑模块
+                </button>
+            </div>
+        </div>
+    </div>
+ 
+        <div class="col-md-3 col-sm-5 left">
+            @Html.Partial("sideBarTree")
+        </div>
+        <div class="col-md-9 col-sm-5 right">
+
+            <hr />
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span>编辑导航</span>
+                </div>
+                <div class="panel-body">
+                    @using (Ajax.BeginForm("EditContentPost", "SchoolSys", new AjaxOptions() { HttpMethod = "post", OnSuccess = "submitOk" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="partialForm">
+                            <!--editcontent partial-->
+                            <p>
+                                没有导航信息,点击<a href="javascript:;" onclick="module.addContent()">添加</a>。
+                            </p>
+                            <!--end partial-->
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    <div class="clearfix"></div>
+</div>
+
+<!--inner modals-->
+<!--编辑模块-->
+<div class="modal fade" id="editModule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="">编辑模块</h4>
+            </div>
+
+            @using (Ajax.BeginForm("EditSideBarModule", new AjaxOptions() { HttpMethod = "Post", OnSuccess = "submitOk" }))
+            {
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">确认</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!--增加模块-->
+<div class="modal fade" id="AddModule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="">增加侧边模块</h4>
+            </div>
+
+            @using (Ajax.BeginForm("AddModule", new AjaxOptions() { HttpMethod = "Post", OnSuccess = "submitOk" }))
+            {
+                <div class="modal-body">
+                    <input type="hidden" name="consoleTopMenuId" class="consoleTopMenuId" value="" />
+                    @Html.Partial("menuFormSidebar", new Module())
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">确认</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+    
+<!--增加导航-->
+<div class="modal fade" id="AddSideBarContent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="">增加侧边导航</h4>
+            </div>
+
+            @using (Ajax.BeginForm("AddSideBarContent", new AjaxOptions() { HttpMethod = "Post", OnSuccess = "submitOk" }))
+            {
+                <div class="modal-body">
+                    @Html.Partial("editContent",
+                        new ConsoleSideBarContentViewModel()
+                        {
+                            Modules = Model,
+                            ConsoleSideMenu= new ConsoleSideMenu()
+                            {
+                                ModuleId =Model.FirstOrDefault().Id
+                            }
+                        })
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!--删除导航-->
+    <div class="modal fade" id="delSideBarContent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="">删除导航</h4>
+                </div>
+                @using (Ajax.BeginForm("delSideBarContent", new AjaxOptions() { OnSuccess = "delOk" }))
+                {
+                    <div class="modal-body">
+                        即将删除导航 <label></label>，继续？
+                        <input type="hidden" value="-1" name="id" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">是的</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <!--删除模块-->
+        <div class="modal fade" id="delModule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="">删除模块</h4>
+                    </div>
+                    @using (Ajax.BeginForm("DelSideBar", new AjaxOptions() { OnSuccess = "delOk" }))
+                    {
+                        <div class="modal-body">
+                            <em class="text-danger">即将删除模块及其所有的导航,是否继续？</em>
+                            <input type="hidden" value="-1" name="id" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="submit" class="btn btn-primary">是的</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <script src="~/Scripts/jsTree3/jstree.min.js"></script>
+
+<script>
+    function JstreeInit() {
+
+        var
+            getNodeId = function (data) {
+                if (data && data.indexOf('_') !== -1) {
+                    return data.split('_')[1];
+                } else {
+                    console.log('无法得到合适的数字参数');
+                }
+            },
+            editForm = function () {
+              if (NODECLICKED !== null && NODECLICKED.id !== undefined && NODECLICKED.id !== '0' && NODECLICKED.id !== 'node_1' && NODECLICKED.parent !== 'node_1')
+                {
+                    $.get('/school/schoolSys/editContent/' + NODECLICKED.id, null)
+                        .done(function (e)
+                        {
+                            $('.right .partialForm').html(e);
+                            return;
+                        })
+                        .catch(function (e) {
+                            console.log('错误信息:');
+                            console.log(e);
+                        });
+                }
+
+
+        };
+        $('#jstree1')
+            .on('changed.jstree',
+                function(e, data) {
+                    NODECLICKED = data.instance.get_node(data.selected[0]);
+                    if (String(NODECLICKED.id).indexOf('module') !== -1) {
+                        console.log('module cliked' + NODECLICKED.id);
+                        if (NODECLICKED.children.length > 0) {
+                            NODECLICKED = $.jstree.reference(this).get_node(NODECLICKED.children[0]);
+                            editForm();
+
+                        } else {
+                            var tips = '  <p>没有导航信息,点击<a href="javascript:;" onclick="module.addContent()">添加</a>。</p>';
+                            $('.right .partialForm').html(tips);
+                        }
+
+                    } else {
+                        editForm();
+                    }
+                })
+            .on('ready.jstree',
+                function(e, d) {
+                    var data = $.jstree.reference(this), sele = data._model.data;
+
+                    if (sele.module_0) {
+                        console.log('没有子模块');
+                    }
+                }).on('loaded.jstree',
+                function(e, data) {
+                    var inst = data.instance;
+                    var sle = inst.get_node(e.target.firstChild.firstChild.lastChild).children;
+
+                    if (sle.module_0) {
+                        console.log('no module exists ');
+                    } else {
+
+                        var nd = $.jstree.reference(this).get_node(sle[0]);
+
+                        NODECLICKED = $.jstree.reference(this).get_node(nd.children[0]);
+                        inst.select_node(NODECLICKED);
+                        editForm();
+
+                    }
+
+                })
+            .jstree({
+                "core": {
+                    "multiple": false,
+                    "themes": {
+                        "variant": "large"
+                    }
+                },
+                "plugins": ["wholerow", ""],
+                "state": {
+                    "opened": true,
+                }
+            });
+    }
+
+    JstreeInit();
+</script>
+
+<script src="~/Areas/School/Public/js/SchoolSys/menuSidebarTable.js"></script>

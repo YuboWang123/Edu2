@@ -1,0 +1,87 @@
+﻿@model Edu.UI.Areas.School.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Console/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<link href="~/Areas/School/Public/css/login.css" rel="stylesheet" />
+
+
+<div class="info info-center">
+
+    <div class="row">
+        <div class="col-lg-offset-4 col-md-offset-4 col-xs-offset-3 col-sm-offset-2 col-md-4">
+            <h2 class="title" style="color:aliceblue;">学校登录</h2>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+        @using (Html.BeginForm("index", "acct", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "loginForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="col-lg-offset-2 col-md-offset-2 text-danger">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            
+            <div class="col-lg-offset-2 col-md-offset-2 col-md-6 col-sm-8">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Email</label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-8">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @autocomplete = "off", required="" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">验证码</label>
+                    <div class="col-md-8">
+                        <div class="" style="background-color:transparent;border:none;">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.RndNumber, new { @class = "form-control", @autocomplete = "off", required = "" })
+                                <span class="input-group-addon" style="border-radius: unset;">
+                                    <img alt="验证码" src="/console/baseadmin/getRndCode" style="height:inherit" />
+                                </span>
+                            </div>
+                        </div>
+                        @Html.ValidationMessage("RndNumber", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-9">
+                        <div class="checkbox  col-md-5 col-md-offset-5 col-sm-offset-1">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { })
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <input type="submit" value="登录" class="btn btn-primary"  />
+            </div>
+        }
+    </div>
+    <div class="row mr" style="margin-top:10%;">
+
+        <div style="border-top:1px solid #808080;padding-top:20px;width:60%;margin:0 auto;">
+            <div class="text-center visible-sm visible-xs visible-md">
+                <p class="text-danger">不建议用手机查看</p>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+@section Scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script src="~/Areas/School/Public/js/login.js"></script>
+}

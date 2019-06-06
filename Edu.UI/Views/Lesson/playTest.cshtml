@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Edu.Entity.TrainLesson.VcrTest>
+
+
+@{
+    int cnt = Model == null ? 0 : Model.Count();
+    if (cnt > 0)
+    {
+        <div class="infoPanel row">
+            <div class="col-md-5">
+                <label>共计: </label>
+                <span class="total">@Model.Count()</span>
+                <label>题</label>
+            </div>
+            <div class="col-md-2">
+                <label>正确:</label>
+                <span class="success">0</span>
+            </div>
+
+            <div class="col-md-2">
+                <label>错误:</label>
+                <span class="failed">0</span>
+            </div>
+            <div class="col-md-3" >
+                <div class="btn btn-group-justified">
+                    <a class="btn btn-warning" property="">提交答案</a>
+                    <a class="btn btn-default">重做</a>
+                </div>
+            </div>
+        </div>
+        foreach (var item in Model)
+        {
+            <div class="testitem" property="@item.Id">
+                <div class="check">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </div>
+
+                <div class="qst">
+                    @Html.Raw(item.Qustion)
+                </div>
+                <div class="choices" property="@item.AnswerLetter">
+                    <p>answer sheet</p>
+                </div>
+                <div class="answer">
+
+                </div>
+            </div>
+        }
+
+    }
+    else
+    {
+        <p class="text-center">本视频没有相关测试题目</p>
+    }
+}

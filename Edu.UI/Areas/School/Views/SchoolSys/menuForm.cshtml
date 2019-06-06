@@ -1,0 +1,36 @@
+﻿ 
+ @model Edu.UI.Areas.School.Models.ConsoleTopMenu
+
+<div class="form-horizontal ">
+    <div class="form-group">
+        @Html.HiddenFor(a=>a.Id)
+        @Html.LabelFor(m => m.Name, new {@class = "col-md-2 control-label"})
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Name, "", new {@class = "text-danger"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ControllerName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ControllerName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ControllerName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.OrderNo, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.OrderNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.OrderNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="checkbox">
+        <label class="col-md-2 control-label" fror="IsEnabled">是否生效</label>
+        <div class="col-md-10 checkbox" style="padding-left: 3em">
+            @Html.CheckBoxFor(a => a.IsEnabled)
+        </div>
+    </div>
+</div>
+ 

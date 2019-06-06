@@ -1,0 +1,49 @@
+﻿
+@using Edu.Entity.TrainBase
+@model IEnumerable<Base_Period>
+
+<div class="content-list">
+    <div class="section">
+        <div class="hd">学段</div>
+        <div class="bd xd">
+            <ul>
+                @if (Model != null)
+                {
+                    foreach (Base_Period s in Model)
+                    {
+                        <li><a href="javascript:;" rel="xd_@s.PeriodID">@s.PeriodName</a></li>
+                    }
+                }
+
+            </ul>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="section">
+        <div class="hd">学科</div>
+        <div class="bd xk">
+            <ul>
+
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="section">
+        <div class="hd">版本</div>
+        <div class="bd bb">
+            <ul></ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="section">
+        <div class="hd">类别</div>
+        <div class="bd lb">
+            <ul></ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

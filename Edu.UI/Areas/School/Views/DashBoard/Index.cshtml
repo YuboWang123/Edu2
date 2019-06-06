@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Edu.UI.Areas.School.Models.ConsoleTopMenu>
+
+@{
+    /**/
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/School/Views/Shared/_LayoutBase.cshtml";
+}
+
+@section style{
+    <link href="~/Areas/School/Public/css/layout/style.css" rel="stylesheet" />
+    <link title="blue" href="~/Areas/School/Public/css/layout/dermadefault.css" rel="stylesheet" />
+    <link href="~/Areas/School/Public/css/layout/templatecss.css" rel="stylesheet" />
+    <link href="~/Content/pagination.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Areas/School/Public/js/lib/layui/css/layui.css" />
+    <link href="~/Areas/School/Public/css/TrainBase/basicData.css" rel="stylesheet" />
+}
+
+
+@Html.Partial("top")
+
+<div class="down-main">
+    <div class="left-main left-full">
+        @if (Model.FirstOrDefault() != null && Model.FirstOrDefault().Modules != null)
+        {
+            Html.Partial("sidebar", Model.FirstOrDefault().Modules.AsEnumerable());
+        }
+    </div>
+    <div class="maincontent right-product my-index right-full" style="overflow-y: auto;overflow-x: scroll;">
+        <!--tips area-->
+        <div class="tips">
+            保存成功
+        </div>
+        <div class="container-fluid" style="padding-right: 0;">
+            <div class="info-center" id="main" property="@(User.Identity.IsAuthenticated == true ? 1 : 0)">
+                <div>
+                    <p>可更新区域</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom" style="">
+        <div class="row">
+            <div class="title">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix" style="clear:both;"></div>
+</div>
+
+@section scripts
+{
+    <script src="~/Areas/School/Public/js/lib/layui/layui.js"></script>
+    <script>
+        layui.config({
+            base: '/Areas/school/Public/js/lib/layui/'
+        }).use('index', function() {});
+    </script>
+    <script src="~/Areas/School/Public/js/app.js"></script>
+}
+
+
+

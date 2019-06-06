@@ -1,0 +1,33 @@
+﻿*{
+    
+}
+.manage-record
+{   
+    width:100%;
+}
+a:visited{text-decoration:none;}
+#bindings{
+    line-height:1.5em;
+    margin-top:10px;
+}
+
+#bindings>section{padding:10px 5px;}
+#bindings>section:hover{background-color:#e6e6e6;}
+#bindings>section ul{}
+#bindings>section ul li{float:left;}
+#bindings>section ul li>a{cursor:pointer;padding:5px 8px;}
+
+#bindings>section>.hd{font-weight:lighter;letter-spacing:.3em;font-size:larger;float:left;}
+#bindings>section>.bd{float:left;}
+#bindings>section>.bd a{ font-weight:lighter;color:#8b8b8b;}
+    #bindings > section > .bd a.active {
+        color:#ff0000;
+        font-weight:bold;
+    }
+
+      
+div.default {
+    bottom: 4px;
+    margin-left: 15em;
+   
+}

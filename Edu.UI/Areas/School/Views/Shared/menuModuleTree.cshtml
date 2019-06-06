@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Edu.UI.Areas.School.Models.Module>
+
+<div class="jstreeModule">
+    <ul>
+        <li class="jstree-open" id="node_1">
+            <span>@Model.FirstOrDefault().consoleTopMenu.Name</span>
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li id="module_@item.Id">
+                        @item.Name
+                        @if (item.ConsoleSideMenus != null)
+                        {
+                            <ul>
+                                @if (item.ConsoleSideMenus.Count() > 0)
+                                {
+                                    foreach (var inner in item.ConsoleSideMenus)
+                                    {
+                                        <li class="jstree-open" data-jstree='{"icon":"glyphicon glyphicon-ban-circle", "disabled": true}' id="@inner.Id"> @inner.Name</li>
+                                    }
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
+</div>

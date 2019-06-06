@@ -1,0 +1,28 @@
+﻿
+@model Edu.UI.Areas.School.Models.Module
+@using (Ajax.BeginForm("editsidebar",new AjaxOptions(){ OnSuccess = "submitOk" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(a=>a.Id)
+    @Html.HiddenFor(a=>a.consoleTopMenuId)
+
+    <div class="form-horizontal ">
+        <div class="form-group">
+            <label class = "col-md-2 control-label">模块名称</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+   
+
+        <div class="form-group">
+            <label class = "col-md-2 control-label">序号</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.OrderNo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.OrderNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+   
+    </div>
+}

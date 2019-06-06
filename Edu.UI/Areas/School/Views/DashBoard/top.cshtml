@@ -1,0 +1,55 @@
+﻿ 
+@model IEnumerable< Edu.UI.Areas.School.Models.ConsoleTopMenu>
+
+<nav class="nav navbar-default navbar-mystyle navbar-fixed-top">
+    <div class="navbar-header">
+
+        <a class="navbar-brand mystyle-brand"><span class="glyphicon glyphicon-home"></span></a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav" id="topmenu" style="padding-left:11px;">
+            <li class="li-border"><a class="mystyle-color" href="#" property="">管理控制台</a></li>
+           
+      
+            @if (Model != null && Model.Count() > 0)
+            {
+                for (int i = 0; i < Model.Count(); i++)
+                {
+                    <li class="li-border">
+                        <a href="javascript:;" property="@Model.ElementAt(i).Id">@Model.ElementAt(i).Name</a>
+                    </li>
+                }
+            }
+        </ul>
+
+        <ul class="nav navbar-nav pull-right">
+            <li class="li-border">
+                <a href="#" class="mystyle-color">
+                    <span class="glyphicon glyphicon-bell"></span>
+                    <span class="topbar-num">0</span>
+                </a>
+            </li>
+            @*  <li class="li-border dropdown">
+           <a href="#" class="mystyle-color" data-toggle="dropdown">
+               <span class="glyphicon glyphicon-search"></span> 搜索
+           </a>
+        <div class="dropdown-menu search-dropdown">
+               <div class="input-group">
+                   <input type="text" class="form-control">
+                   <span class="input-group-btn">
+                       <button type="button" class="btn btn-default">搜索</button>
+                   </span>
+               </div>
+           </div>
+            </li>*@
+
+            <li class="dropdown li-border">
+                <a href="#" class="dropdown-toggle mystyle-color" data-toggle="dropdown">@(User.Identity.Name ?? "[未授权]")<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/School/Acct/Logoff">退出</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</nav>

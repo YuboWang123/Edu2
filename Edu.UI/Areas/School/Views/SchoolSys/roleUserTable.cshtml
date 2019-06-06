@@ -1,0 +1,54 @@
+﻿
+
+@model Edu.UI.Areas.School.Models.RoleAspNetUserViewModel
+
+<table class="layui-table">
+    <thead>
+        <tr>
+            <th>头像</th>
+            <th>用户名</th>
+            <th>电话</th>
+            <th>邮箱地址</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Aspnetusers != null && Model.Aspnetusers.Count() > 0)
+        {
+            foreach (var item in Model.Aspnetusers)
+            {
+                <tr>
+                    <td>
+                        @if (string.IsNullOrWhiteSpace(item.Avatar))
+                        {
+                            <em>无</em>
+                        }
+                        else
+                        {
+                            <img alt="" src="@item.Avatar" class="img-thumbnail"/>
+                        }
+                    </td>
+                    <td>@item.UserName</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Email</td>
+                    <td>
+                        <a href="#" class="btn btn-link" data-bind="@item.Id" onclick="roleMenuHandler.changeRole(this)">修改权限</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center text-muted">
+                    没有用户记录
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="default">
+    @Html.Raw(Model.Pager)
+</div>

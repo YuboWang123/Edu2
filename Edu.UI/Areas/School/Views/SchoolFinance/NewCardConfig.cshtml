@@ -1,0 +1,10 @@
+﻿
+@using Edu.Entity.SchoolFinance
+@model Edu.Entity.SchoolFinance.FINCardConfig
+@Html.Partial("headTitle")
+
+<div class="row">
+    <div class="col-lg-offset-3 col-lg-6 col-md-6"> 
+        @Html.Partial("cardconfigForm",new FINCardConfig())
+     </div>
+</div>

@@ -1,0 +1,76 @@
+﻿@using Edu.UI.Areas.Console.Models
+@model DataAndLessonViewModel
+
+<div class="ds-data-list" data-spm="datalist" id="genTbl">
+    <div class="ds-data-manage">
+
+        <div class="row">
+            <div class="col-md-2 col-lg-2">
+                <h5><span class="glyphicon glyphicon-list"></span> 课程管理</h5>
+            </div>
+
+            <div class="col-lg-offset-10 col-md-offset-10">
+                <a href="#" class="btn btn-default">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                    <span> &nbsp;刷新</span>
+                </a>
+            </div>
+        </div>
+
+        <div id="hd-lsn" class="hd-lsn">
+            @Html.Partial("Binded",Model.dictionary)
+        </div>
+        <div class="console-container console-title row" style="padding-top:20px;">
+
+            <div class="col-md-1 col-xs-2 col-lg-1">
+                <button type="button" class="btn btn-primary newlsn" style="margin-left:10px; height:32px;width:100%" data-toggle="modal" data-target="#GenreNew">
+                    新建课程
+                </button>
+            </div>
+            <div class="col-md-2 col-xs-3 col-lg-2">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="搜课程..." />
+                    <span class="input-group-addon searchBtn" style="cursor:pointer;"><i class="glyphicon  glyphicon-search"></i> </span>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="lsn" class="lsn">
+            @Html.Partial("LessonList")
+        </div>
+
+        <div class="page-main text-center">
+
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="LessonEdit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+
+    @using (Ajax.BeginForm("LessonEdit", "TrainLesson", FormMethod.Post, new AjaxOptions { OnSuccess = "lessonHandler.getinitLsnList()" }))
+    {
+        <div class="modal-dialog modal-lg" role="document">
+            @Html.AntiForgeryToken()
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="false">&times;</span><span class="sr-only">X</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">编辑课程信息</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <span class="error"></span>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="">关闭</button>
+                    <input type="submit" class="btn btn-primary" value="确定" onclick="lessonHandler.valiForm();">
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

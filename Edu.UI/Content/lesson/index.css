@@ -1,0 +1,107 @@
+﻿
+.body-content {
+    padding-top: 50px;
+}
+
+section.container:first-child {
+    margin-top: 20px !important;
+}
+
+.body-content .container > .row {
+    background-color: #fff;
+}
+
+section {
+    min-height: 245px;
+}
+
+    section.restInfo {
+        margin-top: 20px;
+    }
+
+        section.restInfo .padding-large-top {
+            padding-top: 3em;
+            color: #808080;
+            background: url(/Content/images/noCnt.png) no-repeat 60% center;
+            line-height: 200px;
+            padding-top: 160px;
+            text-align: center;
+            font-size: x-large;
+        }
+
+    section.lsnInfo .row div > .thumbnail {
+        padding: unset;
+        margin-bottom: 0;
+        border: none;
+        background: transparent;
+    }
+
+        section.lsnInfo .row div > .thumbnail > img {
+            height: 270px;
+        }
+
+    section.lsnInfo > div > div:first-child {
+        padding-top: .3em;
+        padding-bottom: 1em;
+    }
+
+.lsnInfo ul {
+    list-style: none;
+    line-height: 3em;
+}
+.lsnInfo .price{
+    font-size: large;
+}
+.btn-danger, .btn-warning {
+    border-radius: 0;
+}
+
+.lsnHead > div > div > div {
+    height: 260px;
+    padding: 1em;
+}
+
+ 
+
+    /**leave btn*/
+    .lsnHead > div > div > div a.leaveBtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 5px 1em;
+    }
+
+        .lsnHead > div > div > div a.leaveBtn:hover {
+            background: #86e086;
+            color: #fff;
+        }
+
+.leaveBtn a {
+    color: #808080;
+    font-size: small;
+}
+
+    .leaveBtn a:hover {
+        color: #fff;
+    }
+
+
+
+
+a {
+    color: #000;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+    a:hover {
+        color: rgb(13, 213, 178);
+    }
+
+/*vcrlist*/
+.product > .row > div:first-child {
+    line-height: 30px;
+    text-indent: 2em;
+}

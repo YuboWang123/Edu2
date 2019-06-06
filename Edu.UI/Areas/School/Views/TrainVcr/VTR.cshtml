@@ -1,0 +1,82 @@
+﻿
+@using Edu.UI.Areas.School.Models.VcrViewModels
+
+@model Vcr_Resource_TestViewModel
+
+@{
+    string vcrid = Model.VcrData.Key;
+    string v = Model.VcrData.Value;
+    int r = Model.vcrFiles == null ? 0 : Model.vcrFiles.Count();
+    int t = Model.vcrTests == null ? 0 : Model.vcrTests.Count();
+}
+
+<div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active" property="vcr"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">视频</a></li>
+        <li role="presentation" property="resource"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">配套资源</a></li>
+        <li role="presentation" property="test"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">测试题目</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <section class="tab-content">
+        <div role="tabpanel" property="vcr" class="tab-pane active" id="home">
+
+
+            @if (string.IsNullOrEmpty(v))
+            {
+                <div class="title" onclick="">上传教学视频 (格式:'mp4', 'avi', 'mkv', 'rmvb', 'wma', 'mp3')</div>
+                <input id="UploadVcr" name="" class="file" value="" type="file" data-max-file-count="1">
+                <p class="margin-large-top">没有视频信息</p>
+            }
+            else
+            {
+                <div class="videoDiv" property="@vcrid">
+                    <video src="@v" class="video" controls></video>
+                </div>
+            }
+
+
+        </div>
+        <div role="tabpanel" property="resource" class="tab-pane" id="profile">
+            <div class="title" onclick="">上传配套资源 (格式: '.docx','.doc','.ppt','.pptx')</div>
+            <input id="res" name="resource" class="file" enctype="multipart/form-data" multiple type="file" data-max-file-count="4">
+            <div class="fileList text-left">
+      
+            </div>
+        </div>
+        <div role="tabpanel" property="test" class="tab-pane" id="messages">
+            <div class="title" onclick="">上传测试题目 (格式:'docx', 'doc')</div>
+            <input id="test" name="" class="file" value="" type="file" data-max-file-count="1">
+            <p class="text-black"><span class="glyphicon glyphicon-warning-sign"></span>请按照本站模板上传测试题目  [<a href="javascript:;" onclick="downTemp()">下载Doc模板</a>]</p>
+
+            <div class="testList text-left" style="color:#000">
+                @if (t == 0)
+                {
+                    <p class="margin-large-top">没有测试题</p>
+                }
+                else
+                {
+
+                    foreach (var item in Model.vcrTests)
+                    {
+                        <div property="@item.Id">
+                            @Html.Raw(item.Qustion)
+                        </div>
+                    }
+
+                }
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="~/Areas/School/Public/js/TrainVcr/vtr.js"></script>
+
+
+
+
