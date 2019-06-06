@@ -55,11 +55,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\NetEdu\Fleck\Edu.Fleck.csproj">
-      <Project>{21cd4532-c511-450b-9101-177bcf1455ef}</Project>
-      <Name>Edu.Fleck</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
